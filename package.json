@@ -1,0 +1,42 @@
+{
+  "name": "koa-init",
+  "version": "1.0.0",
+  "description": "initialize koa project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nodejh/koa-init.git"
+  },
+  "keywords": [
+    "koa",
+    "initialize"
+  ],
+  "author": "nodejh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nodejh/koa-init/issues"
+  },
+  "homepage": "https://github.com/nodejh/koa-init#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3"
+  },
+  "dependencies": {
+    "co-wechat": "^2.0.0",
+    "ejs": "^2.5.6",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-logger": "^2.0.1",
+    "koa-router": "^7.1.1",
+    "koa-static": "^3.0.0",
+    "koa-views": "^6.0.2",
+    "mysql": "^2.13.0"
+  }
+}
