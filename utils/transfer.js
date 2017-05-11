@@ -49,7 +49,7 @@ const tansfer = async () => {
     let i = 0;
     const count = await Resources.find({}).count();
     // console.log('count: ', count);
-    while (i <= count) {
+    while (i < count) {
       // eslint-disable-next-line
       const resource = await Resources.find({}).skip(i).limit(1);
       if (resource.length > 0) {
@@ -62,6 +62,7 @@ const tansfer = async () => {
           size: resource[0].size === '---' ? '未知' : resource[0].size, // 大小
           date: resource[0].date, //  发布日期
           publishDate: resource[0].publishDate, // 资源发布日期
+          content: `${resource[0].title} ${resource[0].urlPanbaidu}`,
           user: {
             uid: 'b5de75b0-35fe-11e7-9beb-617a1776ffcd',
             name: '拇指搜',
@@ -70,7 +71,7 @@ const tansfer = async () => {
           history: [],
         });
         // eslint-disable-next-line
-        const res = await article.save();
+        await article.save();
         // console.log('res: ', JSON.stringify(res));
       }
       i += 1;

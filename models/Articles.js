@@ -2,13 +2,14 @@ const mongodb = require('./../utils/mongodb');
 
 const Schema = mongodb.Schema;
 const articlesSchema = new Schema({
-  id: String,
-  title: String, // 资源标题
-  url: String, // 资源的 URL
-  category: String, // 类别
-  size: String, // 大小
+  id: Schema.Types.String,
+  title: Schema.Types.String, // 资源标题
+  url: Schema.Types.String, // 资源的 URL
+  category: Schema.Types.String, // 类别
+  size: Schema.Types.String, // 大小
   date: { type: Date, default: Date.now }, //  该网站发布日期
   publishDate: { type: Date, default: Date.now }, // 百度云发布日期
+  content: Schema.Types.String,
   user: {
     uid: Schema.Types.String,
     name: Schema.Types.String,
@@ -24,6 +25,11 @@ const articlesSchema = new Schema({
       article: {
         title: Schema.Types.String,
         content: Schema.Types.String,
+        url: Schema.Types.String,
+        category: Schema.Types.String,
+        size: Schema.Types.String,
+        date: { type: Date, default: Date.now },
+        publishDate: { type: Date, default: Date.now },
       },
       date: { type: Date, default: Date.now }, // 存为历史记录的日期
     },
