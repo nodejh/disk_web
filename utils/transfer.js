@@ -49,7 +49,7 @@ const tansfer = async () => {
     let i = 0;
     const count = await Resources.find({}).count();
     // console.log('count: ', count);
-    while (i <= 1) {
+    while (i <= count) {
       // eslint-disable-next-line
       const resource = await Resources.find({}).skip(i).limit(1);
       if (resource.length > 0) {
