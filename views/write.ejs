@@ -1,0 +1,111 @@
+<% include _head.ejs %>
+<% include _header.ejs %>
+<% include _nav.ejs %>
+
+
+<div class="container index">
+
+
+
+<div style="margin: 30px 40px;">
+      <div style="display:none">
+        <input id="id" value="<%= content.id %>">
+      </div>
+        <h1>
+          <a href="<%= content.url %>" target="_blank"><%= content.title %></a>
+        </h1>
+        <div style="color: #545454;">
+          <a href="/lists/<%= content.uid %>" style="color: #545454;" target="_blank">
+            <img src="/avatar/<%= content.avatar %>" style="border-radius: 50%;  width: 40px;">
+          </a>
+            <span>作者: <span class="label label-success"><%= content.name %></span></span>
+            <span style="margin-left:20px;font-size: 0.8em;"><%= content.date.toLocaleString() %></span>
+            <% if (isCurrentUsers) { %>
+              <a id="edit" href="/users/edit/<%= content.id %>" style="float:right;font-size: 0.9em;color: #3194d0; text-decoration: underline;">编辑</a>
+            <% } %>
+        </div>
+        <div style="margin: 50px auto;">
+          <%- content.content %>
+        </div>
+
+        <!-- <div style="text-align:center;">
+          <button class="btn" style="margin-bottom: 20px;padding: 8px 25px;font-size: 16px;color: #fff;background-color: #ea6f5a;">赞赏支持</button>
+        </div> -->
+<div>
+
+<!-- 评论区 -->
+<div style="margin-top: 100px; margin-bottom: 100px; max-width: 700px;">
+  <!-- 评论列表 -->
+    <% comment.forEach(function(item) { %>
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <a href="/lists/<%= item.uid %>" style="color: #545454;">
+              <img src="/avatar/<%= item.avatar %>" style="border-radius: 50%;  width: 20px;">
+              <%= item.name %>
+              <span style="margin-left:20px"><%= content.date.toLocaleString() %></span>
+            </a>
+            <%- item.comment_content %>
+          </div>
+        </div>
+      <% }) %>
+
+  <hr>
+  <textarea class="form-control" id="content" rows="4" placeholder="评论内容"></textarea>
+  <button type="button" class="btn btn-success" id="comment" style="float:right;margin: 20px 0">发布评论</button>
+</div>
+
+
+<footer class="container">
+  <div class="row">
+    <div class="col-xs-17 main">
+<a href="http://www.jianshu.com/collection/jppzD2">关于简书</a><em> · </em><a href="http://www.jianshu.com/contact">联系我们</a><em> · </em><a href="http://www.jianshu.com/collection/fc488cd78374">作者成书计划</a><em> · </em><a href="http://www.jianshu.com/notebooks/547/latest">帮助中心</a><em> · </em><a href="http://www.jianshu.com/p/cabc8fa39830">合作伙伴</a>      <div class="icp">
+        ©2012-2017 简书 / 沪ICP备11018329号-5 <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010602000064">沪公网安备31010602000064号</a>
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010602000064">
+          <img src="/assets/web/smrz-14723344f0991457bfc9f5172c219a5f.png" alt="Smrz">
+</a>      </div>
+    </div>
+  </div>
+</footer>
+
+
+    <script src="/jianshu/babel-polyfill-bc8ad06287edd85baf9a.js"></script>
+    <script src="/jianshu/web-base-bc8ad06287edd85baf9a.js"></script>
+
+<% include _scripts.ejs %>
+
+<script type="text/javascript">
+
+  $('#comment').click(function() {
+    var content =$('#content').val();
+
+    if (!content) {
+      return swal('评论内容不能为空！', '', 'error');
+    }
+
+    var data = {
+      contentId: $('#id').val(),
+      content: content,
+    };
+    console.log('data: ', data);
+    $.post('/users/comment', data, function(res) {
+      console.log('res: ', res);
+      if (res.code === 0) {
+        swal({
+          title: '评论成功',
+          text: '',
+          type: 'success',
+          confirmButtonText: '确定',
+        }, function() {
+          window.location.reload();
+        });
+      } else {
+        swal(res.message, '', 'error');
+      }
+    });
+  });
+
+
+</script>
+
+</body>
+</html>

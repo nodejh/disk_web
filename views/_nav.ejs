@@ -1,0 +1,72 @@
+
+      <!-- 全局顶部导航栏 -->
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="width-limit">
+                  <!-- 左上方 Logo -->
+                  <a class="logo" href="/">
+                        <img src="/images/muzhiso.png" alt="Logo">
+                  </a>
+
+                  <!-- 右上角 -->
+                  <% if (isLogin) { %>
+                    <!-- 如果用户登录，显示下拉菜单 -->
+                    <div class="style-mode">
+                      <a class="btn write-btn" target="_blank" href="/users/write/">
+                            <i class="iconfont ic-write"></i>分享
+                      </a>
+                      <a href="/mypublish" class="style-mode-btn" style="font-size:14px;">
+                        <i class="fa fa-user" aria-hidden="true"></i>我的发布
+                      </a>
+                          <div class="popover-modal" style="left: 0px; display: none;">
+                                <div class="meta"><i class="iconfont ic-navigation-night"></i>
+                                      <span>夜间模式</span>
+                                </div>
+                                <div class="switch day-night-group"><a class="switch-btn">开</a> <a class="switch-btn active">关</a></div>
+                                <hr>
+                                <div class="switch font-family-group"><a class="switch-btn font-song">宋体</a> <a class="switch-btn font-hei active">黑体</a></div>
+                                <div class="switch"><a class="switch-btn active">简</a> <a class="switch-btn">繁</a></div>
+                          </div>
+                    </div>
+                  <% } else { %>
+                    <!-- 未登录显示登录/注册/写文章 -->
+                    <a class="btn write-btn" target="_blank" href="/users/write/">
+                          <i class="iconfont ic-write"></i>分享
+                    </a>
+                    <a class="btn sign-up" href="/sign_up">注册</a>
+                    <a class="btn log-in" href="/sign_in">登录</a>
+                  <% } %>
+
+
+
+                  <div class="container">
+                        <div class="navbar-header">
+                              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                              </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="menu">
+                              <ul class="nav navbar-nav">
+                                    <li class="active">
+                                          <a href="/">
+                                                <span class="menu-text">发现</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+                                          </a>
+                                    </li>
+                                    <li class="">
+                                          <a class="app-download-btn" href="/apps">
+                                                <span class="menu-text">首页</span><i class="iconfont ic-navigation-download menu-icon"></i></a>
+                                    </li>
+                                    <li class="search">
+                                          <form target="_blank" action="../search/index.html" accept-charset="UTF-8" method="get">
+                                                <input name="utf8" type="hidden" value="✓">
+                                                <input type="text" name="q" id="q" value="" placeholder="搜索" class="search-input">
+                                                <a class="search-btn" id="q-a" href="javascript:void(null)" style="border-radius: 50%; color: rgb(255, 255, 255) !important; background-color: rgb(150, 150, 150);"><i class="iconfont ic-search"></i></a>
+                                                <!-- <div id="navbar-trending-search"></div> -->
+                                          </form>
+                                    </li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+      </nav>

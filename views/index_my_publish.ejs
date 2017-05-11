@@ -1,0 +1,88 @@
+<% include _head.ejs %>
+<% include _header.ejs %>
+<% include _nav.ejs %>
+
+      <div class="container index">
+            <div class="row">
+                  <div class="col-xs-16 main">
+                        <div class="recommend-collection">
+                              <div class="top-line">
+                                    <div class="row">
+                                          <% tags.forEach(function(item) { %>
+                                                <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/<%= item.key %>">
+                                              <img src="/tags/<%= item.image %>" alt="195">
+                                              <div class="name"><%= item.tag_title %></div>
+                                              <div class="mask"></div>
+                                        </a>
+                                                <% }) %>
+                                                      <a class="col-xs-4 col-lg-3" target="_blank" href="../theme/index.html">
+                                                            <div class="more-hot-collection">更多热门公众号 <i class="iconfont ic-link"></i></div>
+                                                      </a>
+                                    </div>
+                              </div>
+                        </div>
+                        <div id="list-container">
+                              <!-- 文章列表模块 -->
+                              <ul class="note-list" infinite-scroll-url="/">
+
+                                    <% list.forEach(function(item) { %>
+
+                                          <li id="note-8730937" data-note-id="8730937" class="have-img">
+                                                <div class="content">
+                                                      <div class="author">
+                                                            <a class="avatar" target="_blank" href="/lists/<%= item.uid %>">
+                                                                  <img src="/avatar/<%= item.avatar %>" alt="96">
+                                                            </a>
+                                                            <div class="name">
+                                                                  <a class="blue-link" target="_blank" href="/lists/<%= item.uid %>"><%= item.name %></a>
+                                                                  <span class="time" data-shared-at="2017-01-28T00:23:32+08:00">
+                                                                        <%= item.date.toLocaleString() %>
+                                                                  </span>
+                                                            </div>
+                                                      </div>
+                                                      <a class="title" target="_blank" href="<%= item.url %>">
+                                                        <%= item.title %>
+                                                      </a>
+                                                      <p class="abstract">
+                                                            <%= item.content.replace(/<[^>]+>/g, '').substring(0, 200) + '...' %>
+                                                      </p>
+                                                      <div class="meta">
+                                                            <a class="collection-tag" target="_blank" href="/tags/<%= item.tags ? item.tags : 'weixin' %>"><%= item.tag_title? item.tag_title : '暂无' %></a>
+                                                            <a target="_blank" href="/write/<%= item.id %>">
+                                                                  <i class="iconfont ic-list-read"></i>
+                                                                  查看详情
+                                                            </a>
+                                                            <!-- <a target="_blank" href="/">
+                                                                  <i class="iconfont ic-list-comments"></i> 评论数目
+                                                            </a>
+                                                            <a target="_blank" href="/">
+                                                                  <i class="iconfont ic-list-like"></i> 喜欢数目
+                                                            </a>
+                                                            <a target="_blank" href="/">
+                                                                  <i class="iconfont ic-list-money"></i> 赞赏数目
+                                                            </a> -->
+                                                      </div>
+                                                </div>
+                                          </li>
+
+                                          <% }) %>
+
+                              </ul>
+                              <!-- 文章列表模块 -->
+
+                              <% include _pagination.ejs %>
+                        </div>
+                  </div>
+
+                  <% include _aside.ejs %>
+            </div>
+      </div>
+      <div class="side-tool">
+            <ul>
+                  <li class="back-top hide"><a href="#"><i class="iconfont ic-backtop"></i></a></li>
+            </ul>
+      </div>
+
+
+      <% include _scripts.ejs %>
+      <% include _foot.ejs %>

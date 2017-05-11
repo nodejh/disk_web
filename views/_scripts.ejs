@@ -1,0 +1,50 @@
+<script src="/jianshu/babel-polyfill-bc8ad06287edd85baf9a.js"></script>
+<script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
+<!-- Sweet Alert -->
+<script src="/sweet-alert/sweetalert.min.js"></script>
+
+      <script>
+      $.get('/api/isLogin', function (res) {
+        if (res.code === 0 && res.isLogin) {
+          $('a.sign-up').hide();
+          $('a.log-in').hide();
+        }
+      });
+      </script>
+
+<script>
+function stopBubble(e) {
+  //如果提供了事件对象，则这是一个非IE浏览器
+  if ( e && e.stopPropagation )
+    //因此它支持W3C的stopPropagation()方法
+    e.stopPropagation();
+  else
+    //否则，我们需要使用IE的方式来取消事件冒泡
+    window.event.cancelBubble = true;
+}
+
+function search(key) {
+  window.location.href = '/search?q=' + key;
+}
+
+  $('#q').keydown(function(event) {
+    // event.stopPropagation();
+    // event.preventDefault();
+    console.log('event: ', event.keyCode);
+    if (event.keyCode === 13) {
+      stopBubble(event);
+      event.preventDefault();
+      var key = $(this).val();
+      if (key) {
+        search(key);
+      }
+    }
+  });
+
+  $('#q-a').click(function () {
+    var key = $('#q').val();
+    if (key) {
+      search(key);
+    }
+  });
+</script>
