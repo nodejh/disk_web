@@ -1,5 +1,5 @@
 {
-  "name": "muzhiso",
+  "name": "disk",
   "version": "2.0.0",
   "description": "initialize koa project",
   "main": "index.js",
@@ -33,10 +33,13 @@
     "ejs": "^2.5.6",
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
+    "koa-generic-session": "^1.11.5",
+    "koa-generic-session-mongo": "^0.3.1",
     "koa-logger": "^2.0.1",
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
     "koa-views": "^6.0.2",
-    "mongoose": "^4.9.8"
+    "mongoose": "^4.9.8",
+    "uuid": "^3.0.1"
   }
 }

@@ -1,4 +1,4 @@
-const Resources = require('./../models/Resources');
+const Resources = require('../models/Articles');
 
 
 const indexPage = async (ctx) => {

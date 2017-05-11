@@ -1,0 +1,105 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "wangeditor",
+        "scope": null,
+        "escapedName": "wangeditor",
+        "name": "wangeditor",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/jh/inbox/node/scu_group/ArticleServer"
+    ]
+  ],
+  "_from": "wangeditor@latest",
+  "_id": "wangeditor@2.1.22",
+  "_inCache": true,
+  "_location": "/wangeditor",
+  "_nodeVersion": "6.2.2",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/wangeditor-2.1.22.tgz_1477486504654_0.5716006262227893"
+  },
+  "_npmUser": {
+    "name": "wangfupeng1988",
+    "email": "wangfupeng1988@163.com"
+  },
+  "_npmVersion": "3.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "wangeditor",
+    "scope": null,
+    "escapedName": "wangeditor",
+    "name": "wangeditor",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/wangeditor/-/wangeditor-2.1.22.tgz",
+  "_shasum": "e22c306e991ce48ead191dd78ab94022be3f5eb7",
+  "_shrinkwrap": null,
+  "_spec": "wangeditor",
+  "_where": "/Users/jh/inbox/node/scu_group/ArticleServer",
+  "author": {
+    "name": "wangfupeng1988",
+    "url": "https://github.com/wangfupeng1988"
+  },
+  "bugs": {
+    "url": "https://github.com/wangfupeng1988/wangEditor/issues"
+  },
+  "dependencies": {
+    "jquery": "^2.2.3"
+  },
+  "description": "wangEditor - 基于javascript和css开发的 Web富文本编辑器， 轻量、简洁、易用、开源免费",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-copy": "^0.8.1",
+    "grunt-contrib-cssmin": "^0.12.3",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-less": "^1.0.1",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "e22c306e991ce48ead191dd78ab94022be3f5eb7",
+    "tarball": "https://registry.npmjs.org/wangeditor/-/wangeditor-2.1.22.tgz"
+  },
+  "gitHead": "92703d5c89cc18aee7abdd6f662ea58a33f2ae47",
+  "homepage": "http://wangeditor.github.io/",
+  "keywords": [
+    "wangEditor",
+    "富文本编辑器"
+  ],
+  "main": "dist/js/wangEditor.js",
+  "maintainers": [
+    {
+      "name": "wangfupeng1988",
+      "email": "wangfupeng1988@163.com"
+    }
+  ],
+  "name": "wangeditor",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git+https://github.com/wangfupeng1988/wangEditor.git"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangfupeng1988/wangEditor.git"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "title": "wangEditor",
+  "version": "2.1.22"
+}

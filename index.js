@@ -4,6 +4,8 @@ const views = require('koa-views');
 const koaStatic = require('koa-static');
 const bodyParser = require('koa-bodyparser');
 const logger = require('koa-logger');
+const session = require('koa-generic-session');
+const MongoStore = require('koa-generic-session-mongo');
 
 const config = require('./config/config');
 const routers = require('./routers/routers');
@@ -11,6 +13,11 @@ const routers = require('./routers/routers');
 
 const app = new Koa();
 
+// session
+app.keys = ['muzhiso', 'muzhisosos'];
+app.use(session({
+  store: new MongoStore(),
+}));
 
 // 配置控制台日志中间件
 app.use(logger());
