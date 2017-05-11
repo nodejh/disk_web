@@ -44,7 +44,7 @@ const findUser = async () => {
 };
 
 
-const tansfer = async () => {
+const transfer = async () => {
   try {
     let i = 0;
     const count = await Resources.find({}).count();
@@ -58,7 +58,7 @@ const tansfer = async () => {
           id: uuid(),
           title: resource[0].title, // 资源标题
           url: resource[0].urlPanbaidu, // 资源的 URL
-          category: resource[0].categry || '其他', // 类别
+          category: resource[0].categry ? `百度网盘${resource[0].categry}` : '百度网盘其他', // 类别
           size: resource[0].size === '---' ? '未知' : resource[0].size, // 大小
           date: resource[0].date, //  发布日期
           publishDate: resource[0].publishDate, // 资源发布日期
@@ -86,4 +86,4 @@ const tansfer = async () => {
 // createAdminUser();
 // updateUser();
 // findUser();
-tansfer();
+transfer();
