@@ -98,7 +98,7 @@ const transfer = async (start, end) => {
 // }
 
 // transfer(1277810, 1477810);
-transfer(1477810, 1677810);
+// transfer(1477810, 1677810);
 //
 // transfer(1677810, 1877810);
 // transfer(1877810, 2077810);
@@ -130,5 +130,5 @@ transfer(1477810, 1677810);
 // transfer(6077810, 6277810);
 // transfer(6277810, 6577810);
 //
-// transfer(6577810, 6778960);
+transfer(6577810, 6778960);
 // transfer(6777810, 6878960);
