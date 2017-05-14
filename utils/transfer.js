@@ -49,7 +49,7 @@ const transfer = async (start, end) => {
     let i = start;
     let count = end;
     // const count = await Resources.find({}).count();
-    // console.log('count: ', count);
+    console.log('count: ', count);
     while (i < count) {
       // eslint-disable-next-line
       const resource = await Resources.find({}).skip(i).limit(1);
@@ -96,6 +96,7 @@ const transfer = async (start, end) => {
 // for (let i = 0; i < 40; i++) {
 //   transfer(1277810, 1277810 + )
 // }
+
 transfer(1277810, 1477810);
 transfer(1477810, 1677810);
 
