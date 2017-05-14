@@ -28,7 +28,9 @@ const indexPage = async (ctx) => {
       isSearchPage: false,
       isTagsPage: false,
       isLogin: Boolean(ctx.session.uid),
-      pagination,
+      count: pagination.count,
+      page: pagination.page,
+      allPageNumber: pagination.allPageNumber,
     });
   }
 };
