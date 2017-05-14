@@ -44,10 +44,10 @@ const findUser = async () => {
 };
 
 
-const transfer = async () => {
+const transfer = async (start, end) => {
   try {
     let i = 0;
-    const count = await Resources.find({}).count();
+    // const count = await Resources.find({}).count();
     // console.log('count: ', count);
     while (i < count) {
       // eslint-disable-next-line
@@ -86,4 +86,47 @@ const transfer = async () => {
 // createAdminUser();
 // updateUser();
 // findUser();
-transfer();
+// transfer();
+
+// 1277608/6878961
+// 6878960/40
+
+//  6878960 - 1277810 = 5601151
+// for (let i = 0; i < 40; i++) {
+//   transfer(1277810, 1277810 + )
+// }
+transfer(1277810, 1477810);
+transfer(1477810, 1677810);
+
+transfer(1677810, 1877810);
+transfer(1877810, 2077810);
+
+transfer(2077810, 2377810);
+transfer(2377810, 2677810);
+
+transfer(2677810, 2877810);
+transfer(2877810, 3077810);
+
+transfer(3077810, 3277810);
+transfer(3277810, 3577810);
+
+transfer(3577810, 3777810);
+transfer(3777810, 4077810);
+
+transfer(4077810, 4277810);
+transfer(4277810, 4577810);
+
+transfer(4577810, 4877810);
+transfer(4877810, 5077810);
+
+transfer(5077810, 5277810);
+transfer(5277810, 5577810);
+
+transfer(5577810, 5877810);
+transfer(5877810, 6077810);
+
+transfer(6077810, 6277810);
+transfer(6277810, 6577810);
+
+transfer(6577810, 6778960);
+transfer(6777810, 6878960);

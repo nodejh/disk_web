@@ -3,11 +3,13 @@
  */
 
 const router = require('koa-router')();
-const api = require('../controllers/api');
+const apiLogin = require('../controllers/apiLogin');
 
 
-router.get('/test', api.testPage);
-router.post('/test', api.testPost);
+router.get('/isLogin', apiLogin.isLogin);
+router.post('/sign', apiLogin.sign);
+router.post('/login', apiLogin.login);
+// router.post('/test', api.testPost);
 
 
 module.exports = router;

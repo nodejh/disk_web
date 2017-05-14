@@ -8,26 +8,55 @@
             <div class="recommend-collection">
                 <div class="top-line">
                     <div class="row">
-                        <% tags.forEach(function(item) { %>
-                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/<%= item.key %>">
-                            <img src="/tags/<%= item.image %>" alt="195">
-                            <div class="name"><%= item.tag_title %></div>
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/网页">
+                            <img src="/tags/1.jpg" alt="195">
+                            <div class="name">网页</div>
                             <div class="mask"></div>
                         </a>
-                        <% }) %>
-                        <a class="col-xs-4 col-lg-3" target="_blank" href="../theme/index.html">
-                            <div class="more-hot-collection">更多热门公众号 <i class="iconfont ic-link"></i></div>
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/电影">
+                            <img src="/tags/2.jpg" alt="195">
+                            <div class="name">电影</div>
+                            <div class="mask"></div>
+                        </a>
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/文档">
+                            <img src="/tags/3.jpg" alt="195">
+                            <div class="name">文档</div>
+                            <div class="mask"></div>
+                        </a>
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/视频">
+                            <img src="/tags/4.jpg" alt="195">
+                            <div class="name">视频</div>
+                            <div class="mask"></div>
+                        </a>
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/书籍">
+                            <img src="/tags/5.jpg" alt="195">
+                            <div class="name">书籍</div>
+                            <div class="mask"></div>
+                        </a>
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/音乐">
+                            <img src="/tags/6.jpg" alt="195">
+                            <div class="name">1.jpg</div>
+                            <div class="mask">音乐</div>
+                        </a>
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/图片">
+                            <img src="/tags/7.jpg" alt="195">
+                            <div class="name">图片</div>
+                            <div class="mask"></div>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <ul class="trigger-menu" data-pjax-container="#list-container"><li class="active"><a href="/c/71169ced18ac?order_by=commented_at"><i class="iconfont ic-latestcomments"></i>全部</a></li>
-                <li class=""><a href="/c/71169ced18ac?order_by=added_at"><i class="iconfont ic-articles"></i>网页</a></li><li class=""><a href="/c/71169ced18ac?order_by=top"><i class="iconfont ic-hot"></i>电影</a></li>
-                <li class=""><a href="/c/71169ced18ac?order_by=added_at"><i class="iconfont ic-articles"></i>文档</a></li><li class=""><a href="/c/71169ced18ac?order_by=top"><i class="iconfont ic-hot"></i>视频</a></li>
-                <li class=""><a href="/c/71169ced18ac?order_by=top"><i class="iconfont ic-hot"></i>书籍</a></li>
-                <li class=""><a href="/c/71169ced18ac?order_by=added_at"><i class="iconfont ic-articles"></i>音乐</a></li><li class=""><a href="/c/71169ced18ac?order_by=top"><i class="iconfont ic-hot"></i>图片</a></li>
-                <li class=""><a href="/c/71169ced18ac?order_by=top"><i class="iconfont ic-hot"></i>其他</a></li>
+            <ul class="trigger-menu" data-pjax-container="#list-container">
+                <li class="active"><a href="/"><i class="iconfont ic-latestcomments"></i>全部</a></li>
+                <li class=""><a href="/tags/网页"><i class="iconfont ic-articles"></i>网页</a></li>
+                <li class=""><a href="/tags/电影"><i class="iconfont ic-hot"></i>电影</a></li>
+                <li class=""><a href="/tags/文档"><i class="iconfont ic-articles"></i>文档</a></li>
+                <li class=""><a href="/tags/视频"><i class="iconfont ic-hot"></i>视频</a></li>
+                <li class=""><a href="/tags/书籍"><i class="iconfont ic-hot"></i>书籍</a></li>
+                <li class=""><a href="/tags/音乐"><i class="iconfont ic-articles"></i>音乐</a></li>
+                <li class=""><a href="/tags/图片"><i class="iconfont ic-hot"></i>图片</a></li>
+                <li class=""><a href="/tags/其他"><i class="iconfont ic-hot"></i>其他</a></li>
             </ul>
 
             <div id="list-container">
@@ -40,14 +69,12 @@
                         <div class="content">
                             <div class="author">
                                 <a class="avatar" target="_blank" href="/lists/<%= item.uid %>">
-                                    <img src="/avatar/<%= item.avatar %>" alt="96">
+                                    <img src="/uploads/avatar/<%= item.user.avatar %>" alt="96">
                                 </a>
                                 <div class="name">
                                     <a class="blue-link" target="_blank"
                                        href="/lists/<%= item.uid %>"><%= item.name %></a>
-                                    <span class="time" data-shared-at="2017-01-28T00:23:32+08:00">
-                                                                        <%= item.date.toLocaleString() %>
-                                                                  </span>
+                                    <span class="time"><%= item.date.toLocaleString() %></span>
                                 </div>
                             </div>
                             <a class="title" target="_blank" href="<%= item.url %>">
@@ -63,17 +90,7 @@
                                     <i class="iconfont ic-list-read"></i>
                                     查看详情
                                 </a>
-                                <!-- <a target="_blank" href="/">
-                                      <i class="iconfont ic-list-comments"></i> 评论数目
-                                </a>
-                                <a target="_blank" href="/">
-                                      <i class="iconfont ic-list-like"></i> 喜欢数目
-                                </a>
-                                <a target="_blank" href="/">
-                                      <i class="iconfont ic-list-money"></i> 赞赏数目
-                                </a> -->
                             </div>
-                        </div>
                     </li>
 
                     <% }) %>

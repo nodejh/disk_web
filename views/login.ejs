@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <title>登录 - 拇指搜</title>
+    <link rel="stylesheet" media="all" href="/muzhiso/web-ee49a84b291050bb6781.css" />
+
+    <link rel="stylesheet" media="all" href="/muzhiso/signin/entry-ee49a84b291050bb6781.css" />
+</head>
+
+<body class="no-padding reader-black-font" lang="zh-CN">
+<div class="sign">
+    <div class="logo"><a href="/"><img src="/images/muzhiso.png" style="width: 200px" alt="Logo" /></a></div>
+    <div class="main">
+
+
+        <h4 class="title">
+            <div class="normal-title">
+                <a class="active" href="/login">登录</a>
+                <b>·</b>
+                <a id="js-sign-up-btn" class="" href="/sign">注册</a>
+            </div>
+        </h4>
+        <div class="js-sign-in-container">
+            <form accept-charset="UTF-8" method="post">
+                <div class="input-prepend restyle js-normal ">
+                    <input placeholder="手机号" type="text" name="session[email_or_mobile_number]"
+                           id="session_email_or_mobile_number" />
+                    <i class="iconfont ic-user"></i>
+                </div>
+                <div class="input-prepend">
+                    <input placeholder="密码" type="password" name="session[password]" id="session_password" />
+                    <i class="iconfont ic-password"></i>
+                </div>
+                <input value="false" type="hidden" name="session[oversea]" id="session_oversea" />
+                <div class="js-geetest-captcha"></div>
+                <div class="remember-btn">
+                    <input type="checkbox" value="true" checked="checked" name="session[remember_me]"
+                           id="session_remember_me" /><span>记住我</span>
+                </div>
+                <div class="forget-btn">
+                    <a class="" data-toggle="dropdown" href="">登录遇到问题?</a>
+                </div>
+                <input type="button" name="commit" value="登录" id="login" class="sign-in-button" />
+            </form>
+            <!-- 手机验证码登录modal -->
+
+            <!-- 更多登录方式 -->
+            <!--<div class="more-sign">-->
+                <!--<h6>社交帐号登录</h6>-->
+                <!--<ul>-->
+                    <!--<li><a class="weibo" href="/users/auth/weibo"><i class="iconfont ic-weibo"></i></a></li>-->
+                    <!--<li><a class="weixin" href="/users/auth/wechat"><i class="iconfont ic-wechat"></i></a></li>-->
+                    <!--<li><a class="qq" href="/users/auth/qq_connect"><i class="iconfont ic-qq_connect"></i></a></li>-->
+                    <!--<li class="js-more-method"><a href="javascript:void(0);"><i class="iconfont ic-more"></i></a></li>-->
+                    <!--<li class="js-hide-method hide"><a class="douban" href="/users/auth/douban"><i-->
+                                    <!--class="iconfont ic-douban"></i></a></li>-->
+                <!--</ul>-->
+
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+  $('#login').click(function () {
+    var phone = $('#session_email_or_mobile_number').val();
+    var password = $('#session_password').val();
+    var data = {
+      phone: phone,
+      password: password,
+    };
+    $.post('/api/login', data, function (res) {
+      if (res.code === 0) {
+        window.location = '/';
+      } else {
+        alert(res.message);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
