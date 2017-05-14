@@ -46,7 +46,8 @@ const findUser = async () => {
 
 const transfer = async (start, end) => {
   try {
-    let i = 0;
+    let i = start;
+    let count = end;
     // const count = await Resources.find({}).count();
     // console.log('count: ', count);
     while (i < count) {
