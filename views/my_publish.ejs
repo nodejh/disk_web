@@ -1,0 +1,163 @@
+<% include _head.ejs %>
+<% include _header.ejs %>
+<% include _nav.ejs %>
+
+<style type="text/css">
+    .csj-main-top {
+        margin-bottom: 35px;
+
+    }
+
+    .csj-main-top .avatar-collection {
+        float: left;
+        width: 80px;
+        height: 80px;
+    }
+
+    .avatar-collection {
+        display: block;
+        cursor: pointer;
+    }
+
+    .csj-main-top .follow, .csj-main-top .follow-cancel, .csj-main-top .follow-each, .csj-main-top .following {
+        padding: 8px 0;
+        width: 100px;
+    }
+
+    .csj-main-top .btn {
+        float: right;
+        margin: 23px 0 23px 16px;
+        font-size: 15px;
+    }
+
+    .follow {
+        border-color: #42c02e
+    }
+
+    .btn-success {
+        border-radius: 40px;
+        color: #fff;
+        background-color: #42c02e
+    }
+
+    .csj-main-top .info {
+        margin-top: 10px;
+        padding-left: 100px;
+        font-size: 14px;
+        color: #969696;
+    }
+
+    .csj-main-top .title .name {
+        display: inline;
+        font-size: 21px;
+        font-weight: 700;
+        vertical-align: middle;
+    }
+
+    .csj-main-top .title {
+        padding: 10px 0 0 100px;
+    }
+
+    .csj-main-top .btn-hollow {
+        padding: 8px 0;
+        width: 90px;
+    }
+</style>
+
+<div class="container index">
+    <div class="row">
+        <div class="col-xs-16 main">
+
+            <!-- -->
+            <div class="csj-main-top">
+                <a class="avatar-collection" href="#">
+                    <img src="/uploads/avatar/<%= user.avatar %>" alt="240">
+                </a> <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+                <a class="btn btn-hollow" href="#">投稿</a>
+
+                <div class="title">
+                    <a class="name" href="#"><%= user.name %></a>
+                </div>
+                <div class="info">
+                    收录了<%= count %>条内容
+                </div>
+            </div>
+
+            <ul class="trigger-menu" data-pjax-container="#list-container">
+                <li class="<%= tag ? '' : 'active' %>"><a href="/mypublish"><i class="iconfont ic-latestcomments"></i>全部</a></li>
+                <li class="<%= tag === '网页' ? 'active' : '' %>"><a href="/mypublish/tags/网页"><i class="iconfont ic-articles"></i>网页</a>
+                </li>
+                <li class="<%= tag === '电影' ? 'active' : '' %>"><a href="/mypublish/tags/电影"><i class="iconfont ic-hot"></i>电影</a>
+                </li>
+                <li class="<%= tag === '文档' ? 'active' : '' %>"><a href="/mypublish/tags/文档"><i class="iconfont ic-articles"></i>文档</a>
+                </li>
+                <li class="<%= tag === '视频' ? 'active' : '' %>"><a href="/mypublish/tags/视频"><i class="iconfont ic-hot"></i>视频</a>
+                </li>
+                <li class="<%= tag === '书籍' ? 'active' : '' %>"><a href="/mypublish/tags/书籍"><i class="iconfont ic-hot"></i>书籍</a>
+                </li>
+                <li class="<%= tag === '音乐' ? 'active' : '' %>"><a href="/mypublish/tags/音乐"><i class="iconfont ic-articles"></i>音乐</a>
+                </li>
+                <li class="<%= tag === '图片' ? 'active' : '' %>"><a href="/mypublish/tags/图片"><i class="iconfont ic-hot"></i>图片</a>
+                </li>
+                <li class="<%= tag === '其他' ? 'active' : '' %>"><a href="/mypublish/tags/其他"><i class="iconfont ic-hot"></i>其他</a>
+                </li>
+            </ul>
+
+            <div id="list-container">
+                <!-- 文章列表模块 -->
+                <ul class="note-list" infinite-scroll-url="/">
+
+                    <% list.forEach(function(item) { %>
+
+                    <li id="note-8730937" data-note-id="8730937" class="have-img">
+                        <div class="content">
+                            <div class="author">
+                                <a class="avatar" target="_blank" href="/lists/<%= item.uid %>">
+                                    <img src="/uploads/avatar/<%= item.user.avatar %>" alt="96">
+                                </a>
+                                <div class="name">
+                                    <a class="blue-link" target="_blank"
+                                       href="/lists/<%= item.uid %>"><%= item.name %></a>
+                                    <span class="time"><%= item.date.toLocaleString() %></span>
+                                </div>
+                            </div>
+                            <a class="title" target="_blank" href="<%= item.url %>">
+                                <%= item.title %>
+                            </a>
+                            <p class="abstract">
+                                <%= item.content.replace(/<[^>]+>/g, '').substring(0, 200) + '...' %>
+                            </p>
+                            <div class="meta">
+                                <a class="collection-tag" target="_blank"
+                                   href="/subject/<%= item.category %>"><%= item.category %>
+                                </a>
+                                <a target="_blank" href="/write/<%= item.id %>">
+                                    <i class="iconfont ic-list-read"></i>
+                                    查看详情
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <% }) %>
+
+                </ul>
+                <!-- 文章列表模块 -->
+
+                <% include _pagination_my_publish.ejs %>
+
+            </div>
+        </div>
+
+        <% include _aside.ejs %>
+    </div>
+</div>
+</div>
+<div class="side-tool">
+    <ul>
+        <li class="back-top hide"><a href="#"><i class="iconfont ic-backtop"></i></a></li>
+    </ul>
+</div>
+
+
+<% include _scripts.ejs %>
+<% include _foot.ejs %>

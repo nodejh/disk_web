@@ -83,8 +83,18 @@ const sign = async (ctx) => {
 };
 
 
+const logout = async (ctx) => {
+  ctx.session = null;
+  ctx.body = {
+    code: 0,
+    message: '退出登录成功',
+  };
+};
+
+
 module.exports = {
   isLogin,
   login,
   sign,
+  logout,
 };
