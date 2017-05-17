@@ -8,4 +8,5 @@ mongoose.connection.once('open', () => {
   console.log('连接数据库成功');
 });
 
+
 module.exports = mongoose;
