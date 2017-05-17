@@ -1,4 +1,4 @@
-const Resources = require('./../models/Articles');
+const Articles = require('./../models/Articles');
 const pageSize = require('./../utils/constants').pageSize;
 
 const indexPage = async (ctx) => {
@@ -8,7 +8,7 @@ const indexPage = async (ctx) => {
   const { q } = ctx.request.query;
   try {
     // 查询总数
-    pagination.count = await Resources.find({
+    pagination.count = await Articles.find({
       $or: [
         { title: { $regex: q } },
         { content: { $regex: q } },
@@ -25,7 +25,7 @@ const indexPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
-    res = await Resources.find({
+    res = await Articles.find({
       $or: [
         { title: { $regex: q } },
         { content: { $regex: q } },

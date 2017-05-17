@@ -1,4 +1,4 @@
-const Resources = require('./../models/Articles');
+const Articles = require('./../models/Articles');
 const Users = require('./../models/Users');
 const pageSize = require('./../utils/constants').pageSize;
 
@@ -17,7 +17,7 @@ const indexPage = async (ctx) => {
     user = users[0];
     // console.log('user: ', user);
     // 查询总数
-    pagination.count = await Resources.find({ 'user.uid': uid }).count();
+    pagination.count = await Articles.find({ 'user.uid': uid }).count();
     // 当前页码
     pagination.page = ctx.request.query.page === undefined ?
       1 : parseInt(ctx.request.query.page, 10);
@@ -28,7 +28,7 @@ const indexPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
-    res = await Resources.find({ 'user.uid': uid }).skip(start).limit(pageSize).sort({ _id: -1 });
+    res = await Articles.find({ 'user.uid': uid }).skip(start).limit(pageSize).sort({ _id: -1 });
   } catch (exception) {
     console.error('exception: ', exception);
   } finally {
@@ -70,7 +70,7 @@ const tagsPage = async (ctx) => {
     user = users[0];
     // console.log('user: ', user);
     // 查询总数
-    pagination.count = await Resources.find({ 'user.uid': uid, category: { $regex: tag } }).count();
+    pagination.count = await Articles.find({ 'user.uid': uid, category: { $regex: tag } }).count();
     // 当前页码
     pagination.page = ctx.request.query.page === undefined ?
       1 : parseInt(ctx.request.query.page, 10);
@@ -81,7 +81,7 @@ const tagsPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
-    res = await Resources.find({ 'user.uid': uid, category: { $regex: tag } })
+    res = await Articles.find({ 'user.uid': uid, category: { $regex: tag } })
       .skip(start).limit(pageSize).sort({ _id: -1 });
     // console.log('res: ', res);
   } catch (exception) {
