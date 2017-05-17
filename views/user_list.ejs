@@ -70,10 +70,9 @@
 
             <!-- -->
             <div class="csj-main-top">
-                <a class="avatar-collection" href="#">
+                <a class="avatar-collection" href="/user/list/<%= user.id %>">
                     <img src="/uploads/avatar/<%= user.avatar %>" alt="240">
                 </a> <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
-                <a class="btn btn-hollow" href="#">投稿</a>
 
                 <div class="title">
                     <a class="name" href="#"><%= user.name %></a>
@@ -112,12 +111,12 @@
                     <li id="note-8730937" data-note-id="8730937" class="have-img">
                         <div class="content">
                             <div class="author">
-                                <a class="avatar" target="_blank" href="#">
+                                <a class="avatar" target="_blank" href="/user/list/<%= item.user.uid %>">
                                     <img src="/uploads/avatar/<%= item.user.avatar %>" alt="96">
                                 </a>
                                 <div class="name">
                                     <a class="blue-link" target="_blank"
-                                       href="/lists/<%= item.uid %>"><%= item.name %></a>
+                                       href="/lists/<%= item.user.uid %>"><%= item.user.name %></a>
                                     <span class="time"><%= item.date.toLocaleString() %></span>
                                 </div>
                             </div>

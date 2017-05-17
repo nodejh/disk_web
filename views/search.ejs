@@ -68,12 +68,12 @@
                     <li id="note-8730937" data-note-id="8730937" class="have-img">
                         <div class="content">
                             <div class="author">
-                                <a class="avatar" target="_blank" href="/lists/<%= item.uid %>">
+                                <a class="avatar" target="_blank" href="/user/list/<%= item.user.uid %>">
                                     <img src="/uploads/avatar/<%= item.user.avatar %>" alt="96">
                                 </a>
                                 <div class="name">
                                     <a class="blue-link" target="_blank"
-                                       href="/lists/<%= item.uid %>"><%= item.name %></a>
+                                       href="/user/list/<%= item.user.uid %>"><%= item.user.name %></a>
                                     <span class="time"><%= item.date.toLocaleString() %></span>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                                 <a class="collection-tag" target="_blank"
                                    href="/tags/<%= item.category %>"><%= item.category %>
                                 </a>
-                                <a target="_blank" href="/write/<%= item.id %>">
+                                <a target="_blank" href="/article/detail/<%= item.id %>">
                                     <i class="iconfont ic-list-read"></i>
                                     查看详情
                                 </a>
