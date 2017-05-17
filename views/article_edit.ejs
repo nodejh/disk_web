@@ -10,14 +10,14 @@
 
     <div style="margin: 30px 20px">
         <form class="form">
-            <input type="text" id="id" value="<%= content.id %>" style="display:none">
+            <input type="text" id="id" value="<%= article.id %>" style="display:none">
             <div class="form-group">
                 <label for="title">网址</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="url" placeholder="目前只支持微云/微盘/百度网盘的网址"
-                           value="<%= content.url %>">
+                    <input type="text" class="form-control" id="url" placeholder="目前只支持百度网盘的网址"
+                           value="<%= article.url %>">
                     <span class="input-group-btn">
-                                  <button class="btn btn-primary" id="getUrl" type="button">获取内容</button>
+                                  <button class="btn btn-primary" id="getUrl" type="button" style="background-color: #ea6f5a;border-color: #ea6f5a;">获取内容</button>
                                 </span>
                 </div>
             </div>
@@ -25,34 +25,35 @@
             <!-- /input-group -->
             <div class="form-group">
                 <label for="title">标题</label>
-                <input type="text" class="form-control" id="title" placeholder="请输入网址标题" value="<%= content.title %>">
+                <input type="text" class="form-control" id="title" placeholder="请输入网址标题" value="<%= article.title %>">
             </div>
             <div class="form-group">
                 <label for="title">分类</label>
                 <select class="form-control" id="tags">
-                    <% tags.forEach(function(item) { %>
-                    <option value="<%= item.key %>"><%= item.tag_title %></option>
-                    <% }) %>
+                    <option value="百度网盘网页" selected="<%= Boolean(article.category === '百度网盘网页') %>">百度网盘网页</option>
+                    <option value="百度网盘百度网盘电影" selected="<%= Boolean(article.category === '百度网盘网页') %>">百度网盘电影</option>
+                    <option value="百度网盘文档" selected="<%= Boolean(article.category === '百度网盘网页') %>">百度网盘文档</option>
+                    <option value="百度网盘视频" selected="<%= Boolean(article.category === '百度网盘网页') %>">百度网盘视频</option>
+                    <option value="百度网盘书籍" selected="<%= Boolean(article.category === '百度网盘网页') %>">百度网盘书籍</option>
+                    <option value="百度网盘音乐" selected="<%= Boolean(article.category === '百度网盘网页') %>">百度网盘音乐</option>
+                    <option value="百度网盘图片" selected="<%= Boolean(article.category === '百度网盘网页') %>">百度网盘图片</option>
+                    <option value="百度网盘其他" selected="<%= Boolean(article.category === '百度网盘网页') %>">百度网盘其他</option>
                 </select>
             </div>
-            <!-- <div class="form-group">
-              <label for="title">内容</label>
-              <textarea class="form-control" id="content" rows="4">网址内容</textarea>
-            </div> -->
         </form>
 
         <textarea id="editor" placeholder="请输入分享内容" autofocus>
-            <%= content.content %>
+            <%= article.content %>
           </textarea>
 
         <div class="save" style="margin: 20px auto;">
-            <button type="button" class="btn btn-primary" id="write">确定</button>
+            <button type="button" class="btn btn-primary" id="write" style="background-color: #ea6f5a;border-color: #ea6f5a; min-width: 150px; float: right">提交修改内容</button>
         </div>
     </div>
 </div>
+
 <% include _footer.ejs %>
 <% include _scripts.ejs %>
-
 <script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/module.js"></script>
 <script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/hotkeys.js"></script>
 <script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/uploader.js"></script>
@@ -221,17 +222,15 @@
       },
     ]
   });
-  // var content = "<%= content.content %>";
-  // editor.setValue(content);
 
   $('#getUrl').click(function () {
     var url = $('#url').val();
     console.log('url: ', url);
-    var reg = /(.*pan\.baidu\.com.*)|(.*vdisk\.weibo\.com.*)|(.*weiyun\.com.*)/;
+    var reg = /.*pan\.baidu\.com.*/;
     if (!reg.test(url)) {
-      return swal('目前只支持百度网盘、微云或微盘的网址', '', 'error');
+      return swal('目前只支持百度网盘的网址', '', 'error');
     }
-    $.post('/api/url', { url }, function (res) {
+    $.post('/api/user/urlContent', { url }, function (res) {
       if (res.code === 0) {
         $('#title').val(res.data.title);
         var text = [
@@ -252,9 +251,9 @@
     var url = $('#url').val();
     var tags = $('#tags option:selected').val();
     var content = editor.getValue();
-    var reg = /(.*pan\.baidu\.com.*)|(.*vdisk\.weibo\.com.*)|(.*weiyun\.com.*)/;
+    var reg = /.*pan\.baidu\.com.*/;
     if (!reg.test(url)) {
-      return swal('目前只支持百度网盘、微云或微盘的网址', '', 'error');
+      return swal('目前只支持百度网盘的网址', '', 'error');
     }
     if (!title) {
       return swal('网址标题不能为空！', '', 'error');
@@ -274,7 +273,7 @@
       tags: tags
     };
     console.log('data: ', data);
-    $.post('/users/edit', data, function (res) {
+    $.post('/api/article/edit', data, function (res) {
       console.log('res: ', res);
       if (res.code === 0) {
         swal({
@@ -284,7 +283,7 @@
           confirmButtonText: '确定',
         }, function () {
           // window.location.href = '/users/list';
-          window.location.href = '/write/' + id;
+          window.location.href = '/article/detail/' + id;
         });
       } else {
         swal(res.message, '', 'error');
@@ -294,6 +293,4 @@
 
 
 </script>
-<% include _footer.ejs %>
-<% include _scripts.ejs %>
 <% include _foot.ejs %>

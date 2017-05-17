@@ -70,7 +70,7 @@ const insert = async (ctx) => {
       result.code = 0;
     }
   } catch (exception) {
-    result.message = exception.message || '享失败，请重试';
+    result.message = exception.message || '分享失败，请重试';
   } finally {
     ctx.body = result;
   }
