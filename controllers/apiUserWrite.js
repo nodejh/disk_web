@@ -1,5 +1,8 @@
 const url = require('url');
+const uuid = require('uuid/v1');
 const request = require('./../utils/request');
+const Articles = require('./../models/Articles');
+const Users = require('./../models/Users');
 
 
 const urlContent = async (ctx) => {
@@ -31,6 +34,51 @@ const urlContent = async (ctx) => {
 };
 
 
+const insert = async (ctx) => {
+  const result = { code: 1000, message: '', isLogin: false };
+  if (!ctx.session.uid) {
+    result.message = '请登录后再操作';
+    ctx.body = result;
+    return false;
+  }
+  result.isLogin = true;
+  const { uid } = ctx.session;
+  try {
+    const { title, content, url: siteUrl, category } = ctx.request.body;
+    const users = await Users.find({ id: uid });
+    if (users.length !== 1) {
+      result.message = '用户账户异常，请联系管理员';
+    } else {
+      const data = {
+        id: uuid(),
+        title,
+        content,
+        url: siteUrl,
+        category,
+        date: new Date(), //  该网站发布日期
+        publishDate: new Date(), // 百度云发布日期
+        user: {
+          uid: users[0].id,
+          name: users[0].name,
+          avatar: users[0].avatar,
+        }, // 发布用户的信息
+        history: [],
+      };
+      const article = new Articles(data);
+      await article.save(data);
+      result.message = '分享成功';
+      result.code = 0;
+    }
+  } catch (exception) {
+    result.message = exception.message || '享失败，请重试';
+  } finally {
+    ctx.body = result;
+  }
+  return true;
+};
+
+
 module.exports = {
   urlContent,
+  insert,
 };

@@ -10,15 +10,15 @@
 
     <div style="margin: 30px 20px">
         <form class="form">
-            <divu class="form-group">
+            <div class="form-group">
                 <label for="title">网址</label>
                 <div class="input-group">
                     <input type="text" class="form-control" id="url" placeholder="目前只支百度网盘的网址">
                     <span class="input-group-btn">
-                                  <button class="btn btn-primary" id="getUrl" type="button">获取内容</button>
+                                  <button class="btn btn-primary" id="getUrl" type="button" style="background-color: #ea6f5a;border-color: #ea6f5a;">获取内容</button>
                                 </span>
                 </div>
-            </divu>
+            </div>
 
             <!-- /input-group -->
             <div class="form-group">
@@ -43,252 +43,252 @@
         <textarea id="editor" placeholder="请输入分享内容" autofocus></textarea>
 
         <div class="save" style="margin: 20px auto;">
-            <button type="button" class="btn btn-primary" id="write">分享</button>
+            <button type="button" class="btn btn-primary" id="write" style="background-color: #ea6f5a;border-color: #ea6f5a;">分享</button>
         </div>
 
-        <div>
-            <% include _footer.ejs %>
-            <% include _scripts.ejs %>
+    </div>
+</div>
+<% include _footer.ejs %>
+<% include _scripts.ejs %>
 
-            <script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/module.js"></script>
-            <script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/hotkeys.js"></script>
-            <script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/uploader.js"></script>
-            <script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/simditor.js"></script>
-            <script type="text/javascript">
+<script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/module.js"></script>
+<script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/uploader.js"></script>
+<script type="text/javascript" src="/vendor/simditor-2.3.6/scripts/simditor.js"></script>
+<script type="text/javascript">
 
 
-              function validateUrl(url) {
+  function validateUrl(url) {
 
-              }
+  }
 
-              var toolbar = [
-                'title',
-                'bold',
-                'italic',
-                'underline',
-                'strikethrough',
-                'fontScale',
-                'color',
-                'ol',
-                'ul',
-                'blockquote',
-                'code',
-                'table',
-                'link',
-                'image',
-                'hr',
-                'indent',
-                'outdent',
-                'alignment',
-              ];
-              var editor = new Simditor({
-                textarea: $('#editor'),
-                toolbar: toolbar,
-                defaultImage: '/images/image.png',
-                upload: {
-                  url: '/api/upload',
-                  params: 'up',
-                  fileKey: 'pages',
-                  connectionCount: 3,
-                  leaveConfirm: '正在上传文件，确定离开该页面?',
-                },
-                pasteImage: true,
-                allowedTags: [
-                  'br',
-                  'span',
-                  'a',
-                  'img',
-                  'b',
-                  'strong',
-                  'i',
-                  'strike',
-                  'u',
-                  'font',
-                  'p',
-                  'ul',
-                  'ol',
-                  'li',
-                  'blockquote',
-                  'pre',
-                  'code',
-                  'h1',
-                  'h2',
-                  'h3',
-                  'h4',
-                  'hr',
-                ],
-                allowedAttributes: {
-                  img: [
-                    'src',
-                    'alt',
-                    'width',
-                    'height',
-                    'data-non-image',
-                  ],
-                  a: [
-                    'href', 'target',
-                  ],
-                  font: ['color'],
-                  code: ['class'],
-                },
-                allowedStyles: {
-                  span: [
-                    'color', 'font-size',
-                  ],
-                  b: ['color'],
-                  i: ['color'],
-                  strong: ['color'],
-                  strike: ['color'],
-                  u: ['color'],
-                  p: [
-                    'margin-left', 'text-align',
-                  ],
-                  h1: [
-                    'margin-left', 'text-align',
-                  ],
-                  h2: [
-                    'margin-left', 'text-align',
-                  ],
-                  h3: [
-                    'margin-left', 'text-align',
-                  ],
-                  h4: ['margin-left', 'text-align',]
-                },
-                codeLanguages: [
-                  {
-                    name: 'Bash',
-                    value: 'bash'
-                  }, {
-                    name: 'C++',
-                    value: 'c++'
-                  }, {
-                    name: 'C#',
-                    value: 'cs'
-                  }, {
-                    name: 'CSS',
-                    value: 'css'
-                  }, {
-                    name: 'Erlang',
-                    value: 'erlang'
-                  }, {
-                    name: 'Less',
-                    value: 'less'
-                  }, {
-                    name: 'Sass',
-                    value: 'sass'
-                  }, {
-                    name: 'Diff',
-                    value: 'diff'
-                  }, {
-                    name: 'CoffeeScript',
-                    value: 'coffeescript'
-                  }, {
-                    name: 'HTML,XML',
-                    value: 'html'
-                  }, {
-                    name: 'JSON',
-                    value: 'json'
-                  }, {
-                    name: 'Java',
-                    value: 'java'
-                  }, {
-                    name: 'JavaScript',
-                    value: 'js'
-                  }, {
-                    name: 'Markdown',
-                    value: 'markdown'
-                  }, {
-                    name: 'Objective C',
-                    value: 'oc'
-                  }, {
-                    name: 'PHP',
-                    value: 'php'
-                  }, {
-                    name: 'Perl',
-                    value: 'parl'
-                  }, {
-                    name: 'Python',
-                    value: 'python'
-                  }, {
-                    name: 'Ruby',
-                    value: 'ruby'
-                  }, {
-                    name: 'SQL',
-                    value: 'sql'
-                  },
-                ]
-              });
+  var toolbar = [
+    'title',
+    'bold',
+    'italic',
+    'underline',
+    'strikethrough',
+    'fontScale',
+    'color',
+    'ol',
+    'ul',
+    'blockquote',
+    'code',
+    'table',
+    'link',
+    'image',
+    'hr',
+    'indent',
+    'outdent',
+    'alignment',
+  ];
+  var editor = new Simditor({
+    textarea: $('#editor'),
+    toolbar: toolbar,
+    defaultImage: '/images/image.png',
+    upload: {
+      url: '/api/upload',
+      params: 'up',
+      fileKey: 'pages',
+      connectionCount: 3,
+      leaveConfirm: '正在上传文件，确定离开该页面?',
+    },
+    pasteImage: true,
+    allowedTags: [
+      'br',
+      'span',
+      'a',
+      'img',
+      'b',
+      'strong',
+      'i',
+      'strike',
+      'u',
+      'font',
+      'p',
+      'ul',
+      'ol',
+      'li',
+      'blockquote',
+      'pre',
+      'code',
+      'h1',
+      'h2',
+      'h3',
+      'h4',
+      'hr',
+    ],
+    allowedAttributes: {
+      img: [
+        'src',
+        'alt',
+        'width',
+        'height',
+        'data-non-image',
+      ],
+      a: [
+        'href', 'target',
+      ],
+      font: ['color'],
+      code: ['class'],
+    },
+    allowedStyles: {
+      span: [
+        'color', 'font-size',
+      ],
+      b: ['color'],
+      i: ['color'],
+      strong: ['color'],
+      strike: ['color'],
+      u: ['color'],
+      p: [
+        'margin-left', 'text-align',
+      ],
+      h1: [
+        'margin-left', 'text-align',
+      ],
+      h2: [
+        'margin-left', 'text-align',
+      ],
+      h3: [
+        'margin-left', 'text-align',
+      ],
+      h4: ['margin-left', 'text-align',]
+    },
+    codeLanguages: [
+      {
+        name: 'Bash',
+        value: 'bash'
+      }, {
+        name: 'C++',
+        value: 'c++'
+      }, {
+        name: 'C#',
+        value: 'cs'
+      }, {
+        name: 'CSS',
+        value: 'css'
+      }, {
+        name: 'Erlang',
+        value: 'erlang'
+      }, {
+        name: 'Less',
+        value: 'less'
+      }, {
+        name: 'Sass',
+        value: 'sass'
+      }, {
+        name: 'Diff',
+        value: 'diff'
+      }, {
+        name: 'CoffeeScript',
+        value: 'coffeescript'
+      }, {
+        name: 'HTML,XML',
+        value: 'html'
+      }, {
+        name: 'JSON',
+        value: 'json'
+      }, {
+        name: 'Java',
+        value: 'java'
+      }, {
+        name: 'JavaScript',
+        value: 'js'
+      }, {
+        name: 'Markdown',
+        value: 'markdown'
+      }, {
+        name: 'Objective C',
+        value: 'oc'
+      }, {
+        name: 'PHP',
+        value: 'php'
+      }, {
+        name: 'Perl',
+        value: 'parl'
+      }, {
+        name: 'Python',
+        value: 'python'
+      }, {
+        name: 'Ruby',
+        value: 'ruby'
+      }, {
+        name: 'SQL',
+        value: 'sql'
+      },
+    ]
+  });
 
-              $('#getUrl').click(function () {
-                var url = $('#url').val();
-                console.log('url: ', url);
+  $('#getUrl').click(function () {
+    var url = $('#url').val();
+    console.log('url: ', url);
 //                var reg = /(.*pan\.baidu\.com.*)|(.*vdisk\.weibo\.com.*)|(.*weiyun\.com.*)/;
-                var reg = /.*pan\.baidu\.com.*/;
-                if (!reg.test(url)) {
+    var reg = /.*pan\.baidu\.com.*/;
+    if (!reg.test(url)) {
 //                  return swal('目前只支持百度网盘、微云或微盘的网址', '', 'error');
-                  return swal('目前只支持百度网盘的网址', '', 'error');
-                }
-                $.post('/api/urlContent', { url }, function (res) {
-                  if (res.code === 0) {
-                    $('#title').val(res.data.title);
-                    var text = [
-                      url,
-                      title,
-                    ];
-                    $('#content').val(text.join(','));
-                  } else {
-                    swal('获取网址内容失败', '', 'error');
-                  }
-                });
-              });
+      return swal('目前只支持百度网盘的网址', '', 'error');
+    }
+    $.post('/api/user/urlContent', { url }, function (res) {
+      if (res.code === 0) {
+        $('#title').val(res.data.title);
+        var text = [
+          url,
+          title,
+        ];
+        $('#content').val(text.join(','));
+      } else {
+        swal('获取网址内容失败', '', 'error');
+      }
+    });
+  });
 
 
-              $('#write').click(function () {
-                var title = $('#title').val();
-                var url = $('#url').val();
-                var tags = $('#tags option:selected').val();
-                var content = editor.getValue();
+  $('#write').click(function () {
+    var title = $('#title').val();
+    var url = $('#url').val();
+    var tags = $('#tags option:selected').val();
+    var content = editor.getValue();
 //                var reg = /(.*pan\.baidu\.com.*)|(.*vdisk\.weibo\.com.*)|(.*weiyun\.com.*)/;
-                var reg = /.*pan\.baidu\.com.*/;
-                if (!reg.test(url)) {
-                  return swal('目前只支持百度网盘的网址', '', 'error');
-                }
-                if (!title) {
-                  return swal('网址标题不能为空！', '', 'error');
-                }
-                if (!url) {
-                  return swal('网址不能为空！', '', 'error');
-                }
-                if (!content) {
-                  return swal('内容不能为空！', '', 'error');
-                }
+    var reg = /.*pan\.baidu\.com.*/;
+    if (!reg.test(url)) {
+      return swal('目前只支持百度网盘的网址', '', 'error');
+    }
+    if (!title) {
+      return swal('网址标题不能为空！', '', 'error');
+    }
+    if (!url) {
+      return swal('网址不能为空！', '', 'error');
+    }
+    if (!content) {
+      return swal('内容不能为空！', '', 'error');
+    }
 
-                var data = {
-                  title: title,
-                  content: content,
-                  url: url,
-                  tags: tags
-                };
-                console.log('data: ', data);
-                $.post('/user/write', data, function (res) {
-                  console.log('res: ', res);
-                  if (res.code === 0) {
-                    swal({
-                      title: '添加成功',
-                      text: '',
-                      type: 'success',
-                      confirmButtonText: '确定',
-                    }, function () {
-                      // window.location.href = '/users/list';
-                      window.location.href = '/mypublish';
-                    });
-                  } else {
-                    swal(res.message, '', 'error');
-                  }
-                });
-              });
+    var data = {
+      title: title,
+      content: content,
+      url: url,
+      category: tags
+    };
+    console.log('data: ', data);
+    $.post('/api/user/insert', data, function (res) {
+      console.log('res: ', res);
+      if (res.code === 0) {
+        swal({
+          title: '分享成功',
+          text: '',
+          type: 'success',
+          confirmButtonText: '确定',
+        }, function () {
+          // window.location.href = '/users/list';
+          window.location.href = '/mypublish';
+        });
+      } else {
+        swal(res.message, '', 'error');
+      }
+    });
+  });
 
+</script>
 
-            </script>
-
-            <% include _foot.ejs %>
+<% include _foot.ejs %>

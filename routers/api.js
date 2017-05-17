@@ -13,6 +13,7 @@ router.post('/sign', apiLogin.sign);
 router.post('/login', apiLogin.login);
 router.post('/upload', apiUpload.upload);
 router.get('/logout', apiLogin.logout);
-router.get('/urlContent', apiUserWrite.urlContent);
+router.post('/user/urlContent', apiUserWrite.urlContent);
+router.post('/user/insert', apiUserWrite.insert);
 
 module.exports = router;
