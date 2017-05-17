@@ -11,3 +11,4 @@
 ## TODO
 
 - [ ] PAGE SIZE BUG
+- [ ] url include protocol http/https

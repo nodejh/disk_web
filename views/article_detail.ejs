@@ -1,0 +1,154 @@
+<% include _head.ejs %>
+<% include _header.ejs %>
+<% include _nav.ejs %>
+
+<style>
+    .post {
+        margin: 0 auto;
+        width: 90%;
+        max-width: 600px;
+    }
+
+    .post .article .author {
+        margin: 30px 0 40px;
+    }
+
+    .post .article .author .avatar {
+        width: 48px;
+        height: 48px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+    }
+
+    .post .article .author .info {
+        vertical-align: middle;
+        display: inline-block;
+        margin-left: 8px;
+    }
+
+    .post .article .author .tag {
+        padding: 1px 2px;
+        font-size: 12px;
+        color: #ea6f5a;
+        border: 1px solid #ea6f5a;
+        border-radius: 3px;
+    }
+
+    .post .article .author .name {
+        margin-left: 3px;
+        margin-right: 3px;
+        font-size: 16px;
+        vertical-align: middle;
+    }
+
+    .post .article .follow {
+        padding: 0 7px 0 5px;
+        font-size: 12px;
+    }
+
+    .post .article .author .meta {
+        margin-top: 5px;
+        font-size: 12px;
+        color: #969696;
+    }
+
+    .post .article .author .meta span {
+        padding-right: 5px;
+    }
+
+    .post .article .author .edit {
+        float: right;
+        margin-top: 8px;
+        padding: 0 12px;
+        font-size: 14px;
+        border: 1px solid #dcdcdc;
+        color: #9b9b9b;
+        line-height: 30px;
+        border-radius: 50px;
+    }
+    .post .article .show-content {
+        color: #2f2f2f;
+        word-break: normal;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.7;
+    }
+
+    .post .article .show-foot {
+        margin: 40px 0 30px;
+    }
+    .post .article .show-foot .notebook {
+        font-size: 12px;
+        color: #9b9b9b;
+    }
+    .post .article .show-foot .notebook i {
+        margin-right: 2px;
+        font-size: 15px;
+    }
+    .post .article .show-foot .copyright {
+        float: right;
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 1.7;
+        color: #9b9b9b;
+    }
+</style>
+
+<div class="container index">
+    <div class="post">
+        <div class="article">
+            <h1 class="title"><%= article.title %></h1>
+
+            <div class="author">
+                <a class="avatar" href="/u/af9d9c4db83d">
+                    <img src="/uploads/avatar/<%= article.user.avatar %>" alt="144">
+                </a>
+                <div class="info">
+                    <span class="tag">作者</span>
+                    <span class="name">
+                        <a href="">
+                            <%= article.user.name ? article.user.name : '佚名' %>
+                        </a>
+                    </span>
+                    <!-- 关注用户按钮 -->
+                    <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+                    <!-- 文章数据信息 -->
+                    <div class="meta">
+                        <span class="publish-time"><%= article.date.toLocaleString() %></span>
+                        <span class="wordage">字数 <%= article.content.length %></span>
+                        <span class="comments-count">历史版本 <%= article.history ? article.history.length : 0 %>个</span>
+                    </div>
+                </div>
+                <!--如果已经登录，显示编辑按钮-->
+                <% if (isLogin) { %>
+                <a href="/article/edit/<%= article.id %>" target="_blank" class="edit">编辑文章</a>
+                <% } %>
+            </div>
+
+            <div class="show-content">
+                <%- article.content %>
+            </div>
+
+            <div class="show-foot">
+                <a class="notebook" href="/tags/<%= article.category %>">
+                    <i class="iconfont ic-search-notebook"></i> <span><%= article.category %></span>
+                </a>
+                <div class="copyright">
+                    © 著作权归作者所有
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include _footer.ejs %>
+<% include _scripts.ejs %>
+<% include _foot.ejs %>

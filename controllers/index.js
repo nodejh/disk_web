@@ -1,4 +1,4 @@
-const Resources = require('./../models/Articles');
+const Articles = require('./../models/Articles');
 const pageSize = require('./../utils/constants').pageSize;
 
 const indexPage = async (ctx) => {
@@ -7,7 +7,7 @@ const indexPage = async (ctx) => {
   const pagination = {};
   try {
     // 查询总数
-    pagination.count = await Resources.find({}).count();
+    pagination.count = await Articles.find({}).count();
     // 当前页码
     pagination.page = ctx.request.query.page === undefined ?
       1 : parseInt(ctx.request.query.page, 10);
@@ -18,7 +18,7 @@ const indexPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
-    res = await Resources.find({}).skip(start).limit(pageSize).sort({ _id: -1 });
+    res = await Articles.find({}).skip(start).limit(pageSize).sort({ _id: -1 });
   } catch (exception) {
     console.error('exception: ', exception);
   } finally {
@@ -48,7 +48,7 @@ const tagsPage = async (ctx) => {
   }
   try {
     // 查询总数
-    pagination.count = await Resources.find({ category: { $regex: tag } }).count();
+    pagination.count = await Articles.find({ category: { $regex: tag } }).count();
     // 当前页码
     pagination.page = ctx.request.query.page === undefined ?
       1 : parseInt(ctx.request.query.page, 10);
@@ -59,7 +59,7 @@ const tagsPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
-    res = await Resources.find({ category: { $regex: tag } })
+    res = await Articles.find({ category: { $regex: tag } })
       .skip(start).limit(pageSize).sort({ _id: -1 });
   } catch (exception) {
     console.error('exception: ', exception);
@@ -91,7 +91,7 @@ const subjectPage = async (ctx) => {
   }
   try {
     // 查询总数
-    pagination.count = await Resources.find({ category: { $regex: subject } }).count();
+    pagination.count = await Articles.find({ category: { $regex: subject } }).count();
     // 当前页码
     pagination.page = ctx.request.query.page === undefined ?
       1 : parseInt(ctx.request.query.page, 10);
@@ -102,7 +102,7 @@ const subjectPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     console.log('count: ', pagination.count);
-    res = await Resources.find({ category: { $regex: subject } })
+    res = await Articles.find({ category: { $regex: subject } })
       .skip(start).limit(pageSize).sort({ _id: -1 });
   } catch (exception) {
     console.log('exception: ', exception);
