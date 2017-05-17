@@ -1,3 +1,4 @@
+const xss = require('xss');
 const Articles = require('./../models/Articles');
 const Users = require('./../models/Users');
 
@@ -41,10 +42,10 @@ const edit = async (ctx) => {
       date: new Date(), // 存为历史记录的日期
     });
     const newData = {
-      title,
-      content,
-      url: siteUrl,
-      category,
+      title: xss(title),
+      content: xss(content),
+      url: xss(siteUrl),
+      category: xss(category),
       date: new Date(),
       user: {
         uid: user.id,
@@ -53,9 +54,9 @@ const edit = async (ctx) => {
       },
       history,
     };
-    console.log('newData: ', newData);
-    const res = await Articles.update({ id: aid }, newData);
-    console.log('res: ', res);
+    // console.log('newData: ', newData);
+    await Articles.update({ id: aid }, newData);
+    // console.log('res: ', res);
     ctx.body = { code: 0, message: '更新成功' };
     return true;
   } catch (exception) {

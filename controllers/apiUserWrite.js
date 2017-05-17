@@ -1,5 +1,6 @@
 const url = require('url');
 const uuid = require('uuid/v1');
+const xss = require('xss');
 const request = require('./../utils/request');
 const Articles = require('./../models/Articles');
 const Users = require('./../models/Users');
@@ -51,10 +52,10 @@ const insert = async (ctx) => {
     } else {
       const data = {
         id: uuid(),
-        title,
-        content,
-        url: siteUrl,
-        category,
+        title: xss(title),
+        content: xss(content),
+        url: xss(siteUrl),
+        category: xss(category),
         date: new Date(), //  该网站发布日期
         publishDate: new Date(), // 百度云发布日期
         user: {
