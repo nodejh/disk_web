@@ -39,17 +39,9 @@ const login = async (ctx) => {
       };
       return false;
     }
-    console.log('c')
     ctx.session.uid = user[0].id;
-    console.log('d')
-    // ctx.body = { code: 0, message: '登录成功' };
-    ctx.body = {
-      code: 0,
-      message: '1111',
-    };
-    console.log('e');
+    ctx.body = { code: 0, message: '登录成功' };
     return true;
-    console.log('f');
   } catch (e) {
     ctx.body = {
       code: 500,
