@@ -41,6 +41,7 @@ const login = async (ctx) => {
     }
     ctx.session.uid = user[0].id;
     ctx.body = { code: 0, message: '登录成功' };
+    return true;
   } catch (e) {
     ctx.body = {
       code: 500,
