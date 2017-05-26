@@ -42,7 +42,11 @@ const login = async (ctx) => {
     console.log('c')
     ctx.session.uid = user[0].id;
     console.log('d')
-    ctx.body = { code: 0, message: '登录成功' };
+    // ctx.body = { code: 0, message: '登录成功' };
+    ctx.body = {
+      code: 0,
+      message: '1111',
+    };
     console.log('e');
     return true;
     console.log('f');
