@@ -6,9 +6,18 @@ const bodyParser = require('koa-bodyparser');
 const logger = require('koa-logger');
 const session = require('koa-generic-session');
 const MongoStore = require('koa-generic-session-mongo');
+const mongoose = require('mongoose');
+
 
 const config = require('./config/config');
 const routers = require('./routers/routers');
+
+mongoose.Promise = global.Promise;
+mongoose.connect(config.mongodb);
+mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+mongoose.connection.once('open', () => {
+  console.log('连接数据库成功');
+});
 
 
 const app = new Koa();
