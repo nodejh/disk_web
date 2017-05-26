@@ -5,7 +5,7 @@ const Articles = require('./../models/Articles');
 async function findUser() {
   try {
     console.log('a');
-    const user = await Articles.find({ title: '20140205开箱' });
+    const user = await Users.find({ phone: '1' });
     console.log('user: ', user);
     console.log('b');
   } catch (e) {
