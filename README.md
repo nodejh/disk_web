@@ -12,3 +12,4 @@
 
 - [ ] PAGE SIZE BUG
 - [ ] url include protocol http/https
+- [ ] 默认头像 logo.png 使用小图

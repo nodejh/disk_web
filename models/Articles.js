@@ -6,6 +6,7 @@ const articlesSchema = new Schema({
   title: Schema.Types.String, // 资源标题
   url: Schema.Types.String, // 资源的 URL
   category: Schema.Types.String, // 类别
+  subject: Schema.Types.String, // 专题
   size: Schema.Types.String, // 大小
   date: { type: Date, default: Date.now }, //  该网站发布日期
   publishDate: { type: Date, default: Date.now }, // 百度云发布日期

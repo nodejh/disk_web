@@ -17,6 +17,21 @@ const writePage = async (ctx) => {
 };
 
 
+const writeSubjectPage = async (ctx) => {
+  const { uid } = ctx.session;
+  if (!uid) {
+    ctx.redirect('/');
+    return false;
+  }
+  const title = '拇指搜';
+  await ctx.render('user_write_subject', {
+    title,
+    isLogin: Boolean(ctx.session.uid),
+  });
+  return true;
+};
+
+
 const list = async (ctx) => {
   const { uid } = ctx.params;
   console.log('uid: ', uid);
@@ -65,5 +80,6 @@ const list = async (ctx) => {
 
 module.exports = {
   writePage,
+  writeSubjectPage,
   list,
 };

@@ -68,7 +68,7 @@ const sign = async (ctx) => {
       phone,
       password,
       date: new Date(),
-      avatar: 'logo.jpg',
+      avatar: 'logo.png',
     });
     await newUser.save();
     ctx.session.uid = uid;
