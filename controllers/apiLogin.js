@@ -23,6 +23,7 @@ const login = async (ctx) => {
   console.log('phone, password ', phone, password);
   try {
     const user = await Users.find({ phone });
+    console.log('user: ', user);
     // const user = await query(sql, [phone]);
     if (user.length === 0) {
       ctx.body = {
