@@ -25,31 +25,6 @@
                 <label for="title">标题</label>
                 <input type="text" class="form-control" id="title" placeholder="请输入网址标题">
             </div>
-          <div class="form-group">
-            <label for="title">专题</label>
-            <select class="form-control" id="subject">
-              <option value="网页">网页</option>
-              <option value="电影">电影</option>
-              <option value="文档">文档</option>
-              <option value="视频">视频</option>
-              <option value="书籍">书籍</option>
-              <option value="音乐">音乐</option>
-              <option value="图片">图片</option>
-            </select>
-          </div>
-            <div class="form-group">
-                <label for="title">分类</label>
-                <select class="form-control" id="tags">
-                    <option value="百度网盘网页">百度网盘网页</option>
-                    <option value="百度网盘电影">百度网盘电影</option>
-                    <option value="百度网盘文档">百度网盘文档</option>
-                    <option value="百度网盘视频">百度网盘视频</option>
-                    <option value="百度网盘书籍">百度网盘书籍</option>
-                    <option value="百度网盘音乐">百度网盘音乐</option>
-                    <option value="百度网盘图片">百度网盘图片</option>
-                    <option value="百度网盘其他">百度网盘其他</option>
-                </select>
-            </div>
         </form>
 
         <textarea id="editor" placeholder="请输入分享内容" autofocus></textarea>
@@ -259,8 +234,6 @@
   $('#write').click(function () {
     var title = $('#title').val();
     var url = $('#url').val();
-    var subject = $('#subject').val();
-    var tags = $('#tags option:selected').val();
     var content = editor.getValue();
 //                var reg = /(.*pan\.baidu\.com.*)|(.*vdisk\.weibo\.com.*)|(.*weiyun\.com.*)/;
     var reg = /.*pan\.baidu\.com.*/;
@@ -279,10 +252,8 @@
 
     var data = {
       title: title,
-      subject: subject,
       content: content,
-      url: url,
-      category: tags
+      url: url
     };
     console.log('data: ', data);
     $.post('/api/user/insert', data, function (res) {

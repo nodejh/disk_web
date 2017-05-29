@@ -127,6 +127,13 @@ const signPage = async (ctx) => {
   });
 };
 
+const signPageSubject = async (ctx) => {
+  await ctx.render('sign_subject', {
+    title: '登录',
+    isLogin: Boolean(ctx.session.uid),
+  });
+};
+
 
 const loginPage = async (ctx) => {
   await ctx.render('login', {
@@ -141,5 +148,6 @@ module.exports = {
   tagsPage,
   subjectPage,
   signPage,
+  signPageSubject,
   loginPage,
 };

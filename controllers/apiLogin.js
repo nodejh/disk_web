@@ -40,6 +40,7 @@ const login = async (ctx) => {
       return false;
     }
     ctx.session.uid = user[0].id;
+    ctx.session.type = user[0].type;
     ctx.body = { code: 0, message: '登录成功' };
     return true;
   } catch (e) {
@@ -53,7 +54,7 @@ const login = async (ctx) => {
 
 
 const sign = async (ctx) => {
-  const { phone, password, name } = ctx.request.body;
+  const { phone, password, name, type } = ctx.request.body;
   try {
     const user = await Users.find({ phone });
     if (user.length > 0) {
@@ -69,11 +70,13 @@ const sign = async (ctx) => {
       name,
       phone,
       password,
+      type,
       date: new Date(),
       avatar: 'logo.png',
     });
     await newUser.save();
     ctx.session.uid = uid;
+    ctx.session.type = type;
     ctx.body = { code: 0, message: '注册成功' };
   } catch (e) {
     ctx.body = {

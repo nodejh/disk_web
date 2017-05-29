@@ -34,7 +34,7 @@ const edit = async (ctx) => {
         title: article.title,
         content: article.content,
         url: article.url,
-        category: article.url,
+        category: article.category,
         size: article.size,
         date: article.date,
         publishDate: articles.publishDate,

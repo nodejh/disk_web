@@ -48,22 +48,21 @@
             </div>
 
             <ul class="trigger-menu" data-pjax-container="#list-container">
-                <li class="<%= tag ? '' : 'active' %>"><a href="/"><i class="iconfont ic-latestcomments"></i>全部</a></li>
-                <!--<li class="<%= tag === '网页' ? 'active' : '' %>"><a href="/tags/网页"><i class="iconfont ic-articles"></i>网页</a>-->
+                <li class="<%= category ? '' : 'active' %>"><a href="/search?q=<%= q %>&page=<%= page %>"><i class="iconfont ic-latestcomments"></i>全部</a></li>
                 </li>
-                <li class="<%= tag === '电影' ? 'active' : '' %>"><a href="/tags/电影"><i class="iconfont ic-hot"></i>电影</a>
+                <li class="<%= category.indexOf('电影') > -1 ? 'active' : '' %>"><a href="/search?q=<%= q %>&page=<%= page %>&category=电影"><i class="iconfont ic-hot"></i>电影</a>
                 </li>
-                <li class="<%= tag === '文档' ? 'active' : '' %>"><a href="/tags/文档"><i class="iconfont ic-articles"></i>文档</a>
+                <li class="<%= category.indexOf('文档') > -1 ? 'active' : '' %>"><a href="/search?q=<%= q %>&page=<%= page %>&category=文档"><i class="iconfont ic-articles"></i>文档</a>
                 </li>
-                <li class="<%= tag === '视频' ? 'active' : '' %>"><a href="/tags/视频"><i class="iconfont ic-hot"></i>视频</a>
+                <li class="<%= category.indexOf('视频') > -1 ? 'active' : '' %>"><a href="/search?q=<%= q %>&page=<%= page %>&category=视频"><i class="iconfont ic-hot"></i>视频</a>
                 </li>
-                <li class="<%= tag === '书籍' ? 'active' : '' %>"><a href="/tags/书籍"><i class="iconfont ic-hot"></i>书籍</a>
+                <li class="<%= category.indexOf('书籍') > -1 ? 'active' : '' %>"><a href="/search?q=<%= q %>&page=<%= page %>&category=书籍"><i class="iconfont ic-hot"></i>书籍</a>
                 </li>
-                <li class="<%= tag === '音乐' ? 'active' : '' %>"><a href="/tags/音乐"><i class="iconfont ic-articles"></i>音乐</a>
+                <li class="<%= category.indexOf('音乐') > -1 ? 'active' : '' %>"><a href="/search?q=<%= q %>&page=<%= page %>&category=音乐"><i class="iconfont ic-articles"></i>音乐</a>
                 </li>
-                <li class="<%= tag === '图片' ? 'active' : '' %>"><a href="/tags/图片"><i class="iconfont ic-hot"></i>图片</a>
+                <li class="<%= category.indexOf('图片') > -1 ? 'active' : '' %>"><a href="/search?q=<%= q %>&page=<%= page %>&category=图片"><i class="iconfont ic-hot"></i>图片</a>
                 </li>
-                <li class="<%= tag === '其他' ? 'active' : '' %>"><a href="/tags/其他"><i class="iconfont ic-hot"></i>其他</a>
+                <li class="<%= category.indexOf('其他') > -1 ? 'active' : '' %>"><a href="/search?q=<%= q %>&page=<%= page %>&category=其他"><i class="iconfont ic-hot"></i>其他</a>
                 </li>
             </ul>
 
@@ -81,7 +80,7 @@
                                 </a>
                                 <div class="name">
                                     <a class="blue-link" target="_blank"
-                                       href="/user/list/<%= item.user.uid %>"><%= item.user.name %></a>
+                                       href="/user/list?uid=<%= item.user.uid %>"><%= item.user.name %></a>
                                     <span class="time"><%= item.date.toLocaleString() %></span>
                                 </div>
                             </div>

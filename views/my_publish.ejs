@@ -81,26 +81,28 @@
                 </div>
             </div>
 
-            <ul class="trigger-menu" data-pjax-container="#list-container">
-                <li class="<%= tag ? '' : 'active' %>"><a href="/mypublish"><i class="iconfont ic-latestcomments"></i>全部</a></li>
-                <!--<li class="<%= tag === '网页' ? 'active' : '' %>"><a href="/mypublish/tags/网页"><i class="iconfont ic-articles"></i>网页</a>-->
-                </li>
-                <li class="<%= tag === '电影' ? 'active' : '' %>"><a href="/mypublish/tags/电影"><i class="iconfont ic-hot"></i>电影</a>
-                </li>
-                <li class="<%= tag === '文档' ? 'active' : '' %>"><a href="/mypublish/tags/文档"><i class="iconfont ic-articles"></i>文档</a>
-                </li>
-                <li class="<%= tag === '视频' ? 'active' : '' %>"><a href="/mypublish/tags/视频"><i class="iconfont ic-hot"></i>视频</a>
-                </li>
-                <li class="<%= tag === '书籍' ? 'active' : '' %>"><a href="/mypublish/tags/书籍"><i class="iconfont ic-hot"></i>书籍</a>
-                </li>
-                <li class="<%= tag === '音乐' ? 'active' : '' %>"><a href="/mypublish/tags/音乐"><i class="iconfont ic-articles"></i>音乐</a>
-                </li>
-                <li class="<%= tag === '图片' ? 'active' : '' %>"><a href="/mypublish/tags/图片"><i class="iconfont ic-hot"></i>图片</a>
-                </li>
-                <li class="<%= tag === '其他' ? 'active' : '' %>"><a href="/mypublish/tags/其他"><i class="iconfont ic-hot"></i>其他</a>
-                </li>
-            </ul>
-
+            <% if (!user.type) { %>
+              <ul class="trigger-menu" data-pjax-container="#list-container">
+                  <li class="<%= tag ? '' : 'active' %>"><a href="/mypublish"><i class="iconfont ic-latestcomments"></i>全部</a></li>
+                  <!--<li class="<%= tag === '网页' ? 'active' : '' %>"><a href="/mypublish/tags/网页"><i class="iconfont ic-articles"></i>网页</a>-->
+                  </li>
+                  <li class="<%= tag === '电影' ? 'active' : '' %>"><a href="/mypublish/tags/电影"><i class="iconfont ic-hot"></i>电影</a>
+                  </li>
+                  <li class="<%= tag === '文档' ? 'active' : '' %>"><a href="/mypublish/tags/文档"><i class="iconfont ic-articles"></i>文档</a>
+                  </li>
+                  <li class="<%= tag === '视频' ? 'active' : '' %>"><a href="/mypublish/tags/视频"><i class="iconfont ic-hot"></i>视频</a>
+                  </li>
+                  <li class="<%= tag === '书籍' ? 'active' : '' %>"><a href="/mypublish/tags/书籍"><i class="iconfont ic-hot"></i>书籍</a>
+                  </li>
+                  <li class="<%= tag === '音乐' ? 'active' : '' %>"><a href="/mypublish/tags/音乐"><i class="iconfont ic-articles"></i>音乐</a>
+                  </li>
+                  <li class="<%= tag === '图片' ? 'active' : '' %>"><a href="/mypublish/tags/图片"><i class="iconfont ic-hot"></i>图片</a>
+                  </li>
+                  <li class="<%= tag === '其他' ? 'active' : '' %>"><a href="/mypublish/tags/其他"><i class="iconfont ic-hot"></i>其他</a>
+                  </li>
+              </ul>
+            <% } %>
+            
             <div id="list-container">
                 <!-- 文章列表模块 -->
                 <ul class="note-list" infinite-scroll-url="/">

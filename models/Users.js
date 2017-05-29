@@ -7,6 +7,7 @@ const usersSchema = new Schema({
   phone: Schema.Types.String,
   password: Schema.Types.String,
   avatar: Schema.Types.String,
+  type: Schema.Types.String,
   date: { type: Date, default: Date.now },
 });
 

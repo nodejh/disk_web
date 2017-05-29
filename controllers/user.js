@@ -9,7 +9,8 @@ const writePage = async (ctx) => {
     return false;
   }
   const title = '拇指搜';
-  await ctx.render('user_write', {
+  const userWrite = ctx.session.type ? 'user_write_subject' : 'user_write';
+  await ctx.render(userWrite, {
     title,
     isLogin: Boolean(ctx.session.uid),
   });
@@ -33,8 +34,9 @@ const writeSubjectPage = async (ctx) => {
 
 
 const list = async (ctx) => {
-  const { uid } = ctx.params;
+  const { uid, category = '' } = ctx.request.query;
   console.log('uid: ', uid);
+  console.log('category: ', category);
   if (!uid) {
     ctx.redirect('/');
   }
@@ -47,7 +49,11 @@ const list = async (ctx) => {
     user = users[0];
     // console.log('user: ', user);
     // 查询总数
-    pagination.count = await Articles.find({ 'user.uid': uid }).count();
+    if (category) {
+      pagination.count = await Articles.find({ 'user.uid': uid, category: { $regex: category } }).count();
+    } else {
+      pagination.count = await Articles.find({ 'user.uid': uid }).count();
+    }
     // 当前页码
     pagination.page = ctx.request.query.page === undefined ?
       1 : parseInt(ctx.request.query.page, 10);
@@ -58,7 +64,11 @@ const list = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
-    res = await Articles.find({ 'user.uid': uid }).skip(start).limit(pageSize).sort({ _id: -1 });
+    if (category) {
+      res = await Articles.find({ 'user.uid': uid, category: { $regex: category } }).skip(start).limit(pageSize).sort({ _id: -1 });
+    } else {
+      res = await Articles.find({ 'user.uid': uid }).skip(start).limit(pageSize).sort({ _id: -1 });
+    }
   } catch (exception) {
     console.error('exception: ', exception);
   } finally {
@@ -72,7 +82,7 @@ const list = async (ctx) => {
       count: pagination.count,
       page: pagination.page,
       allPageNumber: pagination.allPageNumber,
-      tag: null,
+      category,
     });
   }
   return true;
