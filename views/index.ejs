@@ -8,39 +8,39 @@
             <div class="recommend-collection">
                 <div class="top-line">
                     <div class="row">
-                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/subject/网页">
-                            <img src="/tags/1.jpg" alt="195">
-                            <div class="name">网页</div>
-                            <div class="mask"></div>
-                        </a>
-                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/subject/电影">
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/电影">
                             <img src="/tags/2.jpg" alt="195">
                             <div class="name">电影</div>
                             <div class="mask"></div>
                         </a>
-                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/subject/文档">
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/文档">
                             <img src="/tags/3.jpg" alt="195">
                             <div class="name">文档</div>
                             <div class="mask"></div>
                         </a>
-                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/subject/视频">
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/视频">
                             <img src="/tags/4.jpg" alt="195">
                             <div class="name">视频</div>
                             <div class="mask"></div>
                         </a>
-                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/subject/书籍">
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/书籍">
                             <img src="/tags/5.jpg" alt="195">
                             <div class="name">书籍</div>
                             <div class="mask"></div>
                         </a>
-                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/subject/音乐">
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/音乐">
                             <img src="/tags/6.jpg" alt="195">
                             <div class="name">音乐</div>
                             <div class="mask"></div>
                         </a>
-                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/subject/图片">
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/图片">
                             <img src="/tags/7.jpg" alt="195">
                             <div class="name">图片</div>
+                            <div class="mask"></div>
+                        </a>
+                        <a class="col-xs-4 col-lg-3 back-drop" target="_blank" href="/tags/网页">
+                            <img src="/tags/1.jpg" alt="195">
+                            <div class="name">其它</div>
                             <div class="mask"></div>
                         </a>
                     </div>
@@ -73,7 +73,7 @@
                                 </a>
                                 <div class="name">
                                     <a class="blue-link" target="_blank"
-                                       href="/user/list/<%= item.user.uid %>"><%= item.user.name %></a>
+                                       href="/user/list?uid=<%= item.user.uid %>"><%= item.user.name %></a>
                                     <span class="time"><%= item.date.toLocaleString() %></span>
                                 </div>
                             </div>
