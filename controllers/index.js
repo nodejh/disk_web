@@ -89,7 +89,7 @@ const subjectPage = async (ctx) => {
   }
   try {
     // 查询总数
-    pagination.count = await Articles.find({ subject: { $regex: subject } }).count();
+    pagination.count = await Articles.find({ category: { $regex: subject } }).count();
     // 当前页码
     pagination.page = ctx.request.query.page === undefined ?
       1 : parseInt(ctx.request.query.page, 10);
@@ -100,7 +100,7 @@ const subjectPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     console.log('count: ', pagination.count);
-    res = await Articles.find({ subject: { $regex: subject } })
+    res = await Articles.find({ category: { $regex: subject } })
       .skip(start).limit(pageSize).sort({ date: -1 });
   } catch (exception) {
     console.log('exception: ', exception);
