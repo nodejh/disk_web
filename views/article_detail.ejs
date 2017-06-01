@@ -9,6 +9,13 @@
         max-width: 600px;
     }
 
+    .post pre {
+      word-wrap: break-word;
+      white-space: normal;
+      word-break: break-all;
+      word-spacing: normal;
+    }
+
     .post .article .author {
         margin: 30px 0 40px;
     }
@@ -134,13 +141,13 @@
 
             <% if (article.magnet) { %>
               <div class="well well-sm">
-                磁力链接：<a href="<%= article.magnet %>"><%= article.magnet %></a>
+                <small>磁力链接</small><pre><a href="<%= article.magnet %>"><%= article.magnet %></a></pre>
               </div>
             <% } %>
 
             <% if (article.emule) { %>
               <div class="well well-sm">
-                电驴链接：<a href="<%= article.emule %>"><%= article.emule %></a>
+                <small>电驴链接</small><pre><a href="<%= article.emule %>"><%= article.emule %></a></pre>
               </div>
             <% } %>
 
