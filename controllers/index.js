@@ -2,7 +2,7 @@ const Articles = require('./../models/Articles');
 const pageSize = require('./../utils/constants').pageSize;
 
 const indexPage = async (ctx) => {
-  const title = '拇指搜';
+  const title = '拇指搜-发现无限资源';
   let res = [];
   const pagination = {};
   try {
@@ -38,7 +38,6 @@ const indexPage = async (ctx) => {
 
 
 const tagsPage = async (ctx) => {
-  const title = '拇指搜';
   let res = [];
   const pagination = {};
   const { tag } = ctx.params;
@@ -65,7 +64,7 @@ const tagsPage = async (ctx) => {
     console.error('exception: ', exception);
   } finally {
     await ctx.render('index', {
-      title,
+      title: `${tag}-拇指搜`,
       list: res,
       isSearchPage: false,
       isTagsPage: true,
@@ -81,7 +80,6 @@ const tagsPage = async (ctx) => {
 
 
 const subjectPage = async (ctx) => {
-  const title = '拇指搜';
   let res = [];
   const pagination = {};
   const { subject } = ctx.params;
@@ -108,7 +106,7 @@ const subjectPage = async (ctx) => {
     console.log('exception: ', exception);
   } finally {
     await ctx.render('subject', {
-      title,
+      title: `${subject}-拇指搜`,
       list: res,
       isLogin: Boolean(ctx.session.uid),
       count: pagination.count,

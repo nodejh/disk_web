@@ -2,7 +2,6 @@ const Articles = require('./../models/Articles');
 const pageSize = require('./../utils/constants').pageSize;
 
 const indexPage = async (ctx) => {
-  const title = '拇指搜';
   let res = [];
   const pagination = {};
   const { q, category = '' } = ctx.request.query;
@@ -66,7 +65,7 @@ const indexPage = async (ctx) => {
     console.error('exception: ', exception);
   } finally {
     await ctx.render('search', {
-      title,
+      title: `${q}-拇指搜`,
       list: res,
       q,
       category,
