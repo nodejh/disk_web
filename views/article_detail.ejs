@@ -132,6 +132,19 @@
                 <% } %>
             </div>
 
+            <% if (article.magnet) { %>
+              <div class="well well-sm">
+                磁力链接：<a href="<%= article.magnet %>"><%= article.magnet %></a>
+              </div>
+            <% } %>
+
+            <% if (article.emule) { %>
+              <div class="well well-sm">
+                电驴链接：<a href="<%= article.emule %>"><%= article.emule %></a>
+              </div>
+            <% } %>
+
+
             <div class="show-content">
                 <%- article.content %>
             </div>
