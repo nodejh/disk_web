@@ -1,0 +1,201 @@
+<% include _head.ejs %>
+  <% include _header.ejs %>
+    <% include _nav.ejs %>
+
+
+      <style>
+        .post {
+          margin: 0 auto;
+          width: 90%;
+          max-width: 600px;
+        }
+
+        .post .title {
+          text-align: center;
+          margin: 30px;
+        }
+
+        .post .article .author {
+          margin: 30px 0 40px;
+        }
+
+        .post .article .author .avatar {
+          width: 48px;
+          height: 48px;
+          vertical-align: middle;
+          display: inline-block;
+        }
+
+        .avatar img {
+          width: 100%;
+          height: 100%;
+          border: 1px solid #ddd;
+          border-radius: 50%;
+        }
+
+        .post .article .author .info {
+          vertical-align: middle;
+          display: inline-block;
+          margin-left: 8px;
+        }
+
+        .post .article .author .tag {
+          padding: 1px 2px;
+          font-size: 12px;
+          color: #ea6f5a;
+          border: 1px solid #ea6f5a;
+          border-radius: 3px;
+        }
+
+        .post .article .author .name {
+          margin-left: 3px;
+          margin-right: 3px;
+          font-size: 16px;
+          vertical-align: middle;
+        }
+
+        .post .article .follow {
+          padding: 0 7px 0 5px;
+          font-size: 12px;
+        }
+
+        .post .article .author .meta {
+          margin-top: 5px;
+          font-size: 12px;
+          color: #969696;
+        }
+
+        .post .article .author .meta span {
+          padding-right: 5px;
+        }
+
+        .post .article .author .edit {
+          float: right;
+          margin-top: 8px;
+          padding: 0 12px;
+          font-size: 14px;
+          border: 1px solid #dcdcdc;
+          color: #9b9b9b;
+          line-height: 30px;
+          border-radius: 50px;
+        }
+
+        .post .article .show-content {
+          color: #2f2f2f;
+          word-break: normal;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 1.7;
+        }
+
+        .post .article .show-foot {
+          margin: 40px 0 30px;
+        }
+
+        .post .article .show-foot .notebook {
+          font-size: 12px;
+          color: #9b9b9b;
+        }
+
+        .post .article .show-foot .notebook i {
+          margin-right: 2px;
+          font-size: 15px;
+        }
+
+        .post .article .show-foot .copyright {
+          float: right;
+          margin-top: 5px;
+          font-size: 12px;
+          line-height: 1.7;
+          color: #9b9b9b;
+        }
+      </style>
+
+      <body>
+        <div class="container index">
+          <div class="post">
+            <div class="article">
+              <div class="show-content">
+                <h1 class="title">欢迎您加入拇指搜</h1>
+
+                <p><b></b></p>
+                <p><span>请仔细阅读以下内容，如果您对本协议的任何条款有异议，请停止使用拇指搜提供的所有服务，同时欢迎您向我们提出批评和建议。但当您注册成功，无论是直接或间接发布任何内容或浏览任何信息，都被视作已无条件接受本声明所涉全部内容。</span></p>
+                <p><strong><span>使用规则</span></strong></p>
+                <p><span>1</span><span>、用户注册成功后，用户帐号和密码由用户负责保管；用户应当对其帐号下进行的所有活动和事件负法律责任。</span></p>
+                <p><span>2</span><span>、用户须保证注册信息的真实性、合法性、有效性，不得冒充他人；不得利用他人的名义发布任何信息；不得恶意使用注册帐号导致其他用户误认；任何机构或个人注册和使用的账号名称，不得有下列情形：</span><span><br></span><span>（一）违反宪法或法律法规规定的；</span><span><br></span><span>（二）危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；</span><span><br></span><span>（三）损害国家荣誉和利益的，损害公共利益的；</span><span><br></span><span>（四）煽动民族仇恨、民族歧视，破坏民族团结的；</span><span><br></span><span>（五）破坏国家宗教政策，宣扬邪教和封建迷信的；</span><span><br></span><span>（六）散布谣言，扰乱社会秩序，破坏社会稳定的；</span><span><br></span><span>（七）散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；</span><span><br></span><span>（八）侮辱或者诽谤他人，侵害他人合法权益的；</span><span><br></span><span>（九）含有法律、行政法规禁止的其他内容的。</span></p>
+                <p><b><span>关于用户名的管理</span></b><b></b></p>
+                <p><span>请勿以党和国家领导人或其他名人的真实姓名、字、号、艺名、笔名、头衔等注册和使用昵</span><span> </span><span>称（如确为本人，需要提交相关证据并通过审核方可允许使用）；</span></p>
+                <p><span>请勿以国家组织机构或其他组织机构的名称等注册和使用昵称（如确为该机构，需要提交相关证据并通过审核方可允许使用）；</span></p>
+                <p><span>请勿注册和使用与其他网友相同、相仿的名字或昵称；</span></p>
+                <p><span>请勿注册和使用不文明、不健康的</span><span>ID</span><span>和昵称；</span></p>
+                <p><span>请勿注册和使用易产生歧义、引起他人误解或带有各种奇形怪状符号的</span><span>ID</span><span>和昵称。</span></p>
+                <p><span>用户以虚假信息骗取账号名称注册，或账号头像、简介等注册信息存在违法和不良信息的，拇指搜将予以暂停或注销。</span></p>
+                <p><span>3</span><span>、拇指搜是一个信息资源分享及传播的平台。用户通过拇指搜发布的信息为公开的信息，其他第三方均可以通过拇指搜获取用户发表的信息，用户对任何信息的发表即认可该信息为公开的信息，并单独对此行为承担法律责任；任何用户不愿被其他第三人获知的信息都不应该在拇指搜上进行发表。</span></p>
+                <p><span>4</span><span>、用户承诺不得以任何方式利用平台直接或间接从事违反中国法律、以及社会公德的行为，拇指搜有权对违反上述承诺的内容予以删除。</span></p>
+                <p><span>5</span><span>、用户不得利用拇指搜服务制作、上载、复制、发布、传播或者转载如下内容：</span></p>
+                <p><span>· </span><span>反对宪法所确定的基本原则的；</span></p>
+                <p><span>· </span><span>危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；</span></p>
+                <p><span>· </span><span>损害国家荣誉和利益的；</span></p>
+                <p><span>· </span><span>煽动民族仇恨、民族歧视，破坏民族团结的；</span></p>
+                <p><span>· </span><span>破坏国家宗教政策，宣扬邪教和封建迷信的；</span></p>
+                <p><span>· </span><span>散布谣言，扰乱社会秩序，破坏社会稳定的；</span></p>
+                <p><span>· </span><span>散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；</span></p>
+                <p><span>· </span><span>侮辱或者诽谤他人，侵害他人合法权益的；</span></p>
+                <p><span>· </span><span>含有法律、行政法规禁止的其他内容的信息。</span></p>
+                <p><span>6</span><span>、拇指搜有权对用户的使用进行审查和监督，如用户在使用时违反任何上述规定，拇指搜或其授权的人有权要求用户改正或直接采取一切必要的措施（包括但不限于更改或删除用户发布的内容、暂停或终止用户使用拇指搜的权利）以减轻用户不当行为造成的影响。</span></p>
+                <p><strong><span>知识产权</span></strong></p>
+                <p><span>拇指搜是一个数字信息资源获取、分享及传播的平台，我们尊重和鼓励用户发布原创内容，同时严厉打击各种侵犯知识产权的行为。如果您是权利人或被侵权人，请与我们取得联系，我们将持非常开放的态度，对取得普通许可事项与您进行磋商。事实上，我们对于知识产权的保护力度远远大于法律的规定，比如：我们对知识产权的保护期间远远大于法律规定的权利期间。</span></p>
+                <p><span>1</span><span>、用户在拇指搜上发表的信息资源内容，著作权均归用户本人所有。用户可授权第三方以任何方式使用，不需要得到拇指搜的同意。</span></p>
+                <p><span>2</span><span>、拇指搜提供的网络服务中包含的标识、版面设计、排版方式、文本、图片、图形等均受著作权、商标权及其它法律保护，未经相关权利人（含拇指搜及其他原始权利人）同意，上述内容均不得在任何平台被直接或间接发布、使用、出于发布或使用目的的改写或再发行，或被用于其他任何商业目的。</span></p>
+                <p><span>3</span><span>、为了促进数字信息资源产品的分享和传播，用户将其在拇指搜上发表的信息，授予拇指搜免费的、不可撤销的、非独家使用许可，拇指搜有权将该内容用于平台各种形态的产品和服务上，包括但不限于网站以及发表的应用或其他互联网产品。</span></p>
+                <p><span>第三方若出于非商业目的，将用户在拇指搜上发表的内容转载在拇指搜之外的地方，应当在作品的正文开头的显著位置注明原作者姓名（或原作者在拇指搜上使用的帐号名称），给出原始链接，注明「来源于拇指搜」，并不得对作品进行修改演绎。若需要对作品进行修改，或用于商业目的，第三方应当联系用户获得单独授权，按照用户规定的方式使用该内容。</span></p>
+                <p><span>4</span><span>、除非获得原作者的单独授权，并邮件通知拇指搜（邮箱：</span><span>admin</span><span>＃</span><span>yoshion.com</span><span>，＃换成</span><span>@</span><span>），任何第三方不得转载标注了「禁止转载」的内容，否则均视为侵权。</span></p>
+                <p><span>5</span><span>、在拇指搜上传或发表的内容，用户应保证其为著作权人或已取得合法授权，并且该内容不会侵犯任何第三方的合法权益。如果第三方提出关于著作权的异议，拇指搜有权根据实际情况删除相关的内容有权追究用户的法律责任，给拇指搜或任何第三方造成损失的，用户应负责全额赔偿。</span></p>
+                <p><span>6</span><span>、如果任何第三方侵犯了拇指搜用户相关的权利，用户同意授权拇指搜或其指定的代理人代表拇指搜或用户对该第三方提出警告、投诉、发起行政执法、诉讼、进行上诉，或谈判和解，并且用户同意在拇指搜认为必要的情况下参与共同维权。</span></p>
+                <p><span>7</span><span>、拇指搜有权但无义务对用户发布的内容进行审核，有权根据相关证据结合《侵权责任法》、《信息网络传播权保护条例》等法律法规对侵权信息进行处理。</span></p>
+                <p><strong><span>个人隐私</span></strong></p>
+                <p><span>拇指搜尊重用户个人隐私，将通过技术手段、强化内部管理等办法充分保护用户的个人隐私信息，除法律或有法律赋予权限的政府部门要求或事先得到用户明确授权等原因外，拇指搜保证不对外公开或向第三方透露用户个人隐私信息，或用户在使用服务时存储的非公开内容。</span></p>
+                <p><strong><span>侵权举报</span></strong></p>
+                <p><span>1</span><span>、处理原则</span><span>
+</span></p>
+                <p><span>拇指搜高度重视自由表达和企业正当权利的平衡。依照法律规定删除违法信息是我们的法定义务，拇指搜目前未与任何中介机构合作开展此项业务，请权利人务必通过本声明提供的渠道维权。</span></p>
+                <p><span>2</span><span>、受理范围</span><span>
+</span></p>
+                <p><span>受理侵犯企业或个人合法权益的侵权举报，包括但不限于涉及个人隐私、造谣与诽谤、商业侵权。</span></p>
+                <p><span>涉及个人隐私：发布内容中直接涉及身份信息，如个人姓名、家庭住址、身份证号码、工作单位、私人电话等详细个人隐私；</span></p>
+                <p><span>造谣、诽谤：发布内容中指名道姓（包括自然人和企业）的直接谩骂、侮辱、虚构中伤、恶意诽谤等；</span></p>
+                <p><span>商业侵权：泄露企业商业机密及其他根据保密协议不能公开讨论的内容。</span></p>
+                <p><span>其他按照法律规定的侵权行为。</span></p>
+                <p><span>3</span><span>、举报条件</span><span>
+</span></p>
+                <p><span>如果个人或单位发现拇指搜上存在侵犯自身合法权益的内容，请与拇指搜取得联系（邮箱：</span><span>admin</span><span>＃</span><span>yoshion.com</span><span>，＃换成</span><span>@</span><span>）。为了保证问题能够及时有效地处理，请务必提交真实有效、完整清晰的材料，否则不予受理。请使用以下格式（包括各条款的序号）：</span></p>
+                <p><span>A</span><span>、权利人对涉嫌侵权内容拥有商标权、著作权和或其他依法可以行使权利的权属证明；如果举报人非权利人，请举报人提供代表企业进行举报的书面授权证明。</span></p>
+                <p><span>B</span><span>、充分、明确地描述侵犯了权利人合法权益的内容，提供涉嫌侵权内容在拇指搜上的具体页面地址，指明涉嫌侵权内容中的哪些内容侵犯了上述列明的权利人的合法权益；</span></p>
+                <p><span>C</span><span>、权利人具体的联络信息，包括姓名、身份证或护照复印件（对自然人）、单位登记证明复印件（对单位）、通信地址、电话号码、传真和电子邮件；</span></p>
+                <p><span>D</span><span>、在侵权举报中加入如下关于举报内容真实性的声明：</span></p>
+                <p><span>· </span><span>我本人为所举报内容的合法权利人；</span></p>
+                <p><span>· </span><span>我举报的发布在拇指搜平台中的内容侵犯了本人相应的合法权益；</span></p>
+                <p><span>· </span><span>如果本侵权举报内容不完全属实，本人将承担由此产生的一切法律责任。</span></p>
+                <p><span>4</span><span>、处理流程</span></p>
+                <p><span>出于网络平台的特殊属性，并非所有申请都必须受理。拇指搜收到举报后将严格按照法律规定进行处理，一般情况下邮件七个工作日内处理完毕并给出回复，法律另有规定的除外。处理期间，不提供任何电话、邮件及其他方式的查询服务。</span></p>
+                <p><span>出现拇指搜已经删除或处理的内容，但是百度、谷歌等搜索引擎依然可以搜索到的现象，是因为百度、谷歌等搜索引擎自带缓存，此类问题拇指搜无权也无法处理，因此相关申请不予受理。</span><span>
+</span></p>
+                <p><span>此为拇指搜唯一的官方的侵权投诉渠道，暂不提供其他方式处理此业务，法律另有规定的除外。</span><span>
+</span><span>用户在拇指搜中的商业行为引发的法律纠纷，由交易双方自行处理，与平台无关。</span></p>
+                <p><strong><span>服务终止及暂停</span></strong></p>
+                <p><span>用户任何侵权行为或不自律行为，包括但不限于利用拇指搜平台发布广告或是垃圾信息，骚扰其他用户等，网站可随时行使暂停、收回、删除帐号的权利。</span></p>
+                <p><strong><span>免责申明</span></strong></p>
+                <p><span>1</span><span>、用户在拇指搜发表的内容仅表明其个人的立场和观点，并不代表拇指搜的立场或观点。作为内容的发表者，需自行对所发表内容负责，因所发表内容引发的一切纠纷，由该内容的发表者承担全部法律及连带责任。平台不承担任何法律及连带责任。</span></p>
+                <p><span>2</span><span>、拇指搜不保证网络服务一定能满足用户的要求，也不保证网络服务不会中断，对网络服务的及时性、安全性、准确性也都不作保证。</span></p>
+                <p><span>3</span><span>、对于因不可抗力或拇指搜不能控制的原因造成的网络服务中断或其它缺陷，拇指搜不承担任何责任，但将尽力减少因此而给用户造成的损失和影响。</span></p>
+                <p><strong><span>协议修改</span></strong></p>
+                <p><span>1</span><span>、根据互联网的发展和有关法律、法规及规范性文件的变化，或者因业务发展需要，拇指搜有权对本协议的条款作出修改或变更，一旦本协议的内容发生变动，拇指搜将会直接网站上公布修改之后的协议内容，该公布行为视为已经通知用户修改内容。拇指搜也可采用电子邮件或私信的传送方式，提示用户协议条款的修改、服务变更、或其它重要事项。</span></p>
+                <p><span>2</span><span>、如果不同意拇指搜对本协议相关条款所做的修改，用户有权并应当停止使用拇指搜。如果用户继续使用，则视为用户接受拇指搜平台对本协议相关条款所做的修改。</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <% include _footer.ejs %>
+          <% include _foot.ejs %>
