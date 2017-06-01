@@ -18,7 +18,7 @@ const indexPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
-    res = await Articles.find({}).skip(start).limit(pageSize).sort({ _id: -1 });
+    res = await Articles.find({}).skip(start).limit(pageSize).sort({ date: -1 });
   } catch (exception) {
     console.error('exception: ', exception);
   } finally {
@@ -60,7 +60,7 @@ const tagsPage = async (ctx) => {
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
     res = await Articles.find({ category: { $regex: tag } })
-      .skip(start).limit(pageSize).sort({ _id: -1 });
+      .skip(start).limit(pageSize).sort({ date: -1 });
   } catch (exception) {
     console.error('exception: ', exception);
   } finally {
@@ -103,7 +103,7 @@ const subjectPage = async (ctx) => {
     const start = (pagination.page - 1) * size;
     console.log('count: ', pagination.count);
     res = await Articles.find({ subject: { $regex: subject } })
-      .skip(start).limit(pageSize).sort({ _id: -1 });
+      .skip(start).limit(pageSize).sort({ date: -1 });
   } catch (exception) {
     console.log('exception: ', exception);
   } finally {
@@ -143,6 +143,14 @@ const loginPage = async (ctx) => {
 };
 
 
+const protocolSign = async (ctx) => {
+  await ctx.render('protocol_sign', {
+    title: '拇指搜注册协议-欢迎您加入拇指搜',
+    isLogin: Boolean(ctx.session.uid),
+  });
+};
+
+
 module.exports = {
   indexPage,
   tagsPage,
@@ -150,4 +158,5 @@ module.exports = {
   signPage,
   signPageSubject,
   loginPage,
+  protocolSign,
 };

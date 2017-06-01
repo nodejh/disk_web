@@ -65,9 +65,9 @@ const list = async (ctx) => {
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
     if (category) {
-      res = await Articles.find({ 'user.uid': uid, category: { $regex: category } }).skip(start).limit(pageSize).sort({ _id: -1 });
+      res = await Articles.find({ 'user.uid': uid, category: { $regex: category } }).skip(start).limit(pageSize).sort({ date: -1 });
     } else {
-      res = await Articles.find({ 'user.uid': uid }).skip(start).limit(pageSize).sort({ _id: -1 });
+      res = await Articles.find({ 'user.uid': uid }).skip(start).limit(pageSize).sort({ date: -1 });
     }
   } catch (exception) {
     console.error('exception: ', exception);

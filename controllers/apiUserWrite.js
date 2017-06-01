@@ -45,7 +45,7 @@ const insert = async (ctx) => {
   result.isLogin = true;
   const { uid } = ctx.session;
   try {
-    const { title, content, url: siteUrl, category } = ctx.request.body;
+    const { title, content, url: siteUrl, category, magnet, emule } = ctx.request.body;
     const users = await Users.find({ id: uid });
     if (users.length !== 1) {
       result.message = '用户账户异常，请联系管理员';
@@ -56,6 +56,8 @@ const insert = async (ctx) => {
         content: xss(content),
         url: xss(siteUrl),
         category: ctx.session.type ? ctx.session.type : xss(category),
+        magnet: xss(magnet),
+        emule: xss(emule),
         date: new Date(), //  该网站发布日期
         publishDate: new Date(), // 百度云发布日期
         user: {

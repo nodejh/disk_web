@@ -28,7 +28,7 @@ const indexPage = async (ctx) => {
     // 起始位置
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
-    res = await Articles.find({ 'user.uid': uid }).skip(start).limit(pageSize).sort({ _id: -1 });
+    res = await Articles.find({ 'user.uid': uid }).skip(start).limit(pageSize).sort({ date: -1 });
   } catch (exception) {
     console.error('exception: ', exception);
   } finally {
@@ -82,7 +82,7 @@ const tagsPage = async (ctx) => {
     const start = (pagination.page - 1) * size;
     // console.log('count: ', pagination.count);
     res = await Articles.find({ 'user.uid': uid, category: { $regex: tag } })
-      .skip(start).limit(pageSize).sort({ _id: -1 });
+      .skip(start).limit(pageSize).sort({ date: -1 });
     // console.log('res: ', res);
   } catch (exception) {
     console.error('exception: ', exception);

@@ -52,7 +52,7 @@ const indexPage = async (ctx) => {
             category: { $regex: category },
           },
         ],
-      }).skip(start).limit(pageSize).sort({ _id: -1 });
+      }).skip(start).limit(pageSize).sort({ date: -1 });
     } else {
       res = await Articles.find({
         $or: [
@@ -60,7 +60,7 @@ const indexPage = async (ctx) => {
           { content: { $regex: q } },
           { 'user.name': { $regex: q } },
         ],
-      }).skip(start).limit(pageSize).sort({ _id: -1 });
+      }).skip(start).limit(pageSize).sort({ date: -1 });
     }
   } catch (exception) {
     console.error('exception: ', exception);

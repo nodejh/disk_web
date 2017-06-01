@@ -9,7 +9,8 @@ const edit = async (ctx) => {
     return false;
   }
   try {
-    const { title, content, url: siteUrl, tags: category, id: aid } = ctx.request.body;
+    const { title, content, url: siteUrl, tags: category, id: aid, magnet, emule }
+      = ctx.request.body;
     const users = await Users.find({ id: uid });
     if (users.length !== 1) {
       ctx.body = { code: 2000, message: '用户账户异常，请联系管理员' };
@@ -34,6 +35,8 @@ const edit = async (ctx) => {
         title: article.title,
         content: article.content,
         url: article.url,
+        magnet: article.magnet,
+        emule: article.emule,
         category: article.category,
         size: article.size,
         date: article.date,
@@ -45,6 +48,8 @@ const edit = async (ctx) => {
       title: xss(title),
       content: xss(content),
       url: xss(siteUrl),
+      magnet: xss(magnet),
+      emule: xss(emule),
       category: xss(category),
       date: new Date(),
       user: {
