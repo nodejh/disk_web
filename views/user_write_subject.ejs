@@ -25,6 +25,14 @@
                 <label for="title">标题</label>
                 <input type="text" class="form-control" id="title" placeholder="请输入网址标题">
             </div>
+            <div class="form-group">
+                <label for="title">磁力链接</label>
+                <input type="text" class="form-control" id="magnet" placeholder="请输入磁力链接">
+            </div>
+            <div class="form-group">
+                <label for="title">电驴链接</label>
+                <input type="text" class="form-control" id="emule" placeholder="请输入电驴链接">
+            </div>
         </form>
 
         <textarea id="editor" placeholder="请输入分享内容" autofocus></textarea>
@@ -234,6 +242,8 @@
   $('#write').click(function () {
     var title = $('#title').val();
     var url = $('#url').val();
+    var emule = $('#emule').val();
+    var magnet = $('#magnet').val();
     var content = editor.getValue();
 //                var reg = /(.*pan\.baidu\.com.*)|(.*vdisk\.weibo\.com.*)|(.*weiyun\.com.*)/;
     var reg = /.*pan\.baidu\.com.*/;
@@ -252,6 +262,8 @@
 
     var data = {
       title: title,
+      emule: emule,
+      magnet: magnet,
       content: content,
       url: url
     };

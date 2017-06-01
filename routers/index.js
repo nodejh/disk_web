@@ -9,6 +9,7 @@ const search = require('./../controllers/search');
 
 
 router.get('/', index.indexPage);
+router.get('protocol_sign', index.protocolSign);
 router.get('tags/:tag', index.tagsPage);
 router.get('subject/:subject', index.subjectPage);
 router.get('sign', index.signPage);
