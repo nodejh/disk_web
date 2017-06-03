@@ -96,7 +96,7 @@
                                     <span class="time"><%= item.date.toLocaleString() %></span>
                                 </div>
                             </div>
-                            <a class="title" target="_blank" href="<%= item.url %>">
+                            <a class="title" target="<%= item.url ? '_blank' : '' %>" href="<%= item.url ? item.url : '#' %>">
                                 <%= item.title %>
                             </a>
                             <p class="abstract">
