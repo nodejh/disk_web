@@ -111,16 +111,16 @@
                     <li id="note-8730937" data-note-id="8730937" class="have-img">
                         <div class="content">
                             <div class="author">
-                                <a class="avatar" target="_blank" href="/user/list/<%= item.user.uid %>">
+                                <a class="avatar" target="_blank" href="/user/list?uid=<%= user.id %>">
                                     <img src="/uploads/avatar/<%= item.user.avatar %>" alt="96">
                                 </a>
                                 <div class="name">
                                     <a class="blue-link" target="_blank"
-                                       href="/lists/<%= item.user.uid %>"><%= item.user.name %></a>
+                                       href="#"><%= item.user.name %></a>
                                     <span class="time"><%= item.date.toLocaleString() %></span>
                                 </div>
                             </div>
-                            <a class="title" target="<%= item.url ? '_blank' : '' %>" href="<%= item.url ? item.url : '#' %>">
+                            <a class="title" target="_blank" href="<%= item.url ? item.url : '/article/detail/' + item.id %>">
                                 <%= item.title %>
                             </a>
                             <p class="abstract">

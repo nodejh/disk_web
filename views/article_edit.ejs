@@ -261,14 +261,18 @@
     var tags = $('#tags option:selected').val();
     var content = editor.getValue();
     var reg = /.*pan\.baidu\.com.*/;
-    if (!reg.test(url)) {
+    var tempLink = [];
+    if (url) { tempLink.push(url); }
+    if (emule) { tempLink.push(emule); }
+    if (magnet) { tempLink.push(magnet); }
+    if (tempLink.length === 0) {
+      return swal('网址、磁力链接、电驴链接至少填写一个！', '', 'error');
+    }
+    if (url && !reg.test(url)) {
       return swal('目前只支持百度网盘的网址', '', 'error');
     }
     if (!title) {
       return swal('网址标题不能为空！', '', 'error');
-    }
-    if (!url) {
-      return swal('网址不能为空！', '', 'error');
     }
     if (!content) {
       return swal('内容不能为空！', '', 'error');
