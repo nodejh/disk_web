@@ -6,22 +6,22 @@
         <!-- 上一页 -->
         <% if (page > 1 && page <= allPageNumber) { %>
         <li>
-            <a href="/user/list/<%= uid %>/tags/<%= tag %>?page=<%= page - 1 %>" aria-label="Previous">
+            <a href="/user/list?uid=<%= uid %>&category=<%= tag %>&page=<%= page - 1 %>" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
         <% } %>
         <!-- 当前页 - 3 -->
         <% if (page - 3 > 1) { %>
-        <li><a href="/user/list/<%= uid %>/tags/<%= tag %>?page=<%= page - 3 %>"><%= page - 3 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&category=<%= tag %>&page=<%= page - 3 %>"><%= page - 3 %></a></li>
         <% } %>
         <!-- 当前页 - 2 -->
         <% if (page - 2 > 1) { %>
-        <li><a href="/user/list/<%= uid %>/tags/<%= tag %>?page=<%= page - 2 %>"><%= page - 2 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&category=<%= tag %>&page=<%= page - 2 %>"><%= page - 2 %></a></li>
         <% } %>
         <!-- 当前页 - 1 -->
         <% if (page - 1 > 1) { %>
-        <li><a href="/user/list/<%= uid %>/tags/<%= tag %>?page=<%= page - 1 %>"><%= page - 1 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&category=<%= tag %>&page=<%= page - 1 %>"><%= page - 1 %></a></li>
         <% } %>
         <!-- 当前页 -->
         <li class="active"><a href="#"
@@ -29,20 +29,20 @@
                         class="sr-only"><%= page %></span></a></li>
         <!-- 当前页 + 1 -->
         <% if (page + 1 <= allPageNumber) { %>
-        <li><a href="/user/list/<%= uid %>/tags/<%= tag %>?page=<%= page + 1 %>"><%= page + 1 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&category=<%= tag %>&page=<%= page + 1 %>"><%= page + 1 %></a></li>
         <% } %>
         <!-- 当前页 + 2 -->
         <% if (page + 2 <= allPageNumber) { %>
-        <li><a href="/user/list/<%= uid %>/tags/<%= tag %>?page=<%= page + 2 %>"><%= page + 2 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&category=<%= tag %>&page=<%= page + 2 %>"><%= page + 2 %></a></li>
         <% } %>
         <!-- 当前页 + 3 -->
         <% if (page + 3 <= allPageNumber) { %>
-        <li><a href="/user/list/<%= uid %>/tags/<%= tag %>?page=<%= page + 3 %>"><%= page + 3 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&category=<%= tag %>&page=<%= page + 3 %>"><%= page + 3 %></a></li>
         <% } %>
         <!-- 下一页 -->
         <% if (page > 0 && page < allPageNumber) { %>
         <li>
-            <a href="/user/list/<%= uid %>/tags/<%= tag %>?page=<%= page + 1 %>" aria-label="Next">
+            <a href="/user/list?uid=<%= uid %>&category=<%= tag %>&page=<%= page + 1 %>" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
@@ -56,22 +56,22 @@
         <!-- 上一页 -->
         <% if (page > 1 && page <= allPageNumber) { %>
         <li>
-            <a href="/user/list/<%= uid %>?page=<%= page - 1 %>" aria-label="Previous">
+            <a href="/user/list?uid=<%= uid %>&page=<%= page - 1 %>" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
             </a>
         </li>
         <% } %>
         <!-- 当前页 - 3 -->
         <% if (page - 3 > 1) { %>
-        <li><a href="/user/list/<%= uid %>?page=<%= page - 3 %>"><%= page - 3 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&page=<%= page - 3 %>"><%= page - 3 %></a></li>
         <% } %>
         <!-- 当前页 - 2 -->
         <% if (page - 2 > 1) { %>
-        <li><a href="/user/list/<%= uid %>?page=<%= page - 2 %>"><%= page - 2 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&page=<%= page - 2 %>"><%= page - 2 %></a></li>
         <% } %>
         <!-- 当前页 - 1 -->
         <% if (page - 1 > 1) { %>
-        <li><a href="/user/list/<%= uid %>?page=<%= page - 1 %>"><%= page - 1 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&page=<%= page - 1 %>"><%= page - 1 %></a></li>
         <% } %>
         <!-- 当前页 -->
         <li class="active"><a href="#"
@@ -79,20 +79,20 @@
                         class="sr-only"><%= page %></span></a></li>
         <!-- 当前页 + 1 -->
         <% if (page + 1 <= allPageNumber) { %>
-        <li><a href="/user/list/<%= uid %>?page=<%= page + 1 %>"><%= page + 1 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&page=<%= page + 1 %>"><%= page + 1 %></a></li>
         <% } %>
         <!-- 当前页 + 2 -->
         <% if (page + 2 <= allPageNumber) { %>
-        <li><a href="/user/list/<%= uid %>?page=<%= page + 2 %>"><%= page + 2 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&page=<%= page + 2 %>"><%= page + 2 %></a></li>
         <% } %>
         <!-- 当前页 + 3 -->
         <% if (page + 3 <= allPageNumber) { %>
-        <li><a href="/user/list/<%= uid %>?page=<%= page + 3 %>"><%= page + 3 %></a></li>
+        <li><a href="/user/list?uid=<%= uid %>&page=<%= page + 3 %>"><%= page + 3 %></a></li>
         <% } %>
         <!-- 下一页 -->
         <% if (page > 0 && page < allPageNumber) { %>
         <li>
-            <a href="/user/list/<%= uid %>?page=<%= page + 1 %>" aria-label="Next">
+            <a href="/user/list?uid=<%= uid %>&page=<%= page + 1 %>" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
