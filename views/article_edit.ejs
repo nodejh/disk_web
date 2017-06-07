@@ -261,6 +261,8 @@
     var tags = $('#tags option:selected').val();
     var content = editor.getValue();
     var reg = /.*pan\.baidu\.com.*/;
+    var regMagnet = /magnet.*/;
+    var regEmule = /ed2k.*/;
     var tempLink = [];
     if (url) { tempLink.push(url); }
     if (emule) { tempLink.push(emule); }
@@ -270,6 +272,12 @@
     }
     if (url && !reg.test(url)) {
       return swal('目前只支持百度网盘的网址', '', 'error');
+    }
+    if (magnet && !regMagnet.test(magnet)) {
+      return swal('磁力链接格式错误', '', 'error');
+    }
+    if (emule && !regEmule.test(emule)) {
+      return swal('电驴链接格式错误', '', 'error');
     }
     if (!title) {
       return swal('网址标题不能为空！', '', 'error');
