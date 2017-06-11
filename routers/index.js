@@ -15,6 +15,7 @@ router.get('subject/:subject', index.subjectPage);
 router.get('sign', index.signPage);
 router.get('sign2', index.signPageSubject);
 router.get('login', index.loginPage);
+router.get('redirect', index.redirectPage);
 router.get('myPublish', myPublish.indexPage);
 router.get('myPublish/tags/:tag', myPublish.tagsPage);
 router.get('search', search.indexPage);

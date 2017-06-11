@@ -149,6 +149,16 @@ const protocolSign = async (ctx) => {
 };
 
 
+const redirectPage = async (ctx) => {
+  const { url } = ctx.request.query;
+  // console.log('url: ', url);
+  if (url) {
+    await ctx.redirect(url);
+  } else {
+    await ctx.redirect('/');
+  }
+};
+
 module.exports = {
   indexPage,
   tagsPage,
@@ -157,4 +167,5 @@ module.exports = {
   signPageSubject,
   loginPage,
   protocolSign,
+  redirectPage,
 };

@@ -120,7 +120,7 @@
                                     <span class="time"><%= item.date.toLocaleString() %></span>
                                 </div>
                             </div>
-                            <a class="title" target="_blank" href="<%= item.url ? item.url : '/article/detail/' + item.id %>">
+                            <a class="title" target="_blank" href="<%= item.url ? '/redirect?url=' + encodeURIComponent(item.url) : '/article/detail/' + item.id %>">
                                 <%= item.title %>
                             </a>
                             <p class="abstract">

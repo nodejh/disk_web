@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>跳转中</title>
+  </head>
+  <body>
+    <h4>跳转中...</h4>
+    <p>
+      如果无法自动跳转，请手动将 <a href="<%= url %>"><%= url %></a> 复制到浏览器地址栏打开。
+    </p>
+
+    <script type="text/javascript">
+    alert('<%= url %>')
+      window.location.href = decodeURIComponent('<%= url %>');
+    </script>
+  </body>
+</html>
