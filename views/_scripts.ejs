@@ -2,15 +2,31 @@
 <script type="text/javascript" src="/vendor/jquery/jquery.min.js"></script>
 <!-- Sweet Alert -->
 <script src="/sweet-alert/sweetalert.min.js"></script>
+<script type="text/javascript">
 
-      <script>
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
       $.get('/api/isLogin', function (res) {
         if (res.code === 0 && res.isLogin) {
           $('a.sign-up').hide();
           $('a.log-in').hide();
         }
       });
-      </script>
+
+      var q = getParameterByName('q');
+      if (q) {
+        $('#q').val(q);
+      }
+
+</script>
 
 <script>
 function stopBubble(e) {

@@ -1,12 +1,116 @@
-/*body {
-  padding: 50px;
+body {
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #f7f8fa;
 }
 
-a {
+/*a {
   color: #00B7FF;
 }*/
 
 #list-container {
   margin: 30px auto;
+}
+
+.post {
+    margin: 0 auto!important;
+    width: 90%!important;
+    max-width: 650px!important;
+    background: #fff!important;
+    padding: 10px 20px!important;
+    margin: 50px auto!important;
+}
+
+.index .main .recommend-collection {
+  background: #fff;
+  margin: 0;
+  padding: 10px;
+}
+.note-list li.have-img {
+    min-height: 140px;
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.trigger-menu {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0;
+    list-style: none;
+    background: #fff;
+}
+
+@media (min-width: 500px) {
+  .search input {
+    min-width: 330px;
+  }
+  .search input:focus {
+    width: 360px;
+  }
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: #31b0d5;
+}
+
+nav .sign-up {
+    float: right;
+    width: 80px;
+    height: 38px;
+    line-height: 24px;
+    margin: 9px 5px 0 15px;
+    border: 1px solid #31b0d5;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #31b0d5;
+    background-color: transparent;
+}
+nav .sign-up:hover {
+    color: #FFF;
+    border-color: #31b0d5;
+    background-color: #31b0d5;
+}
+
+nav .write-btn {
+    float: right;
+    width: 100px;
+    height: 38px;
+    line-height: 24px;
+    margin: 9px 15px 0;
+    border-radius: 4px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #31b0d5;
+}
+nav .write-btn:focus, nav .write-btn:hover {
+    color: #fff;
+    background-color: #269abc;
+}
+
+.note-list .collection-tag {
+    padding: 2px 6px;
+    color: #31b0d5!important;
+    border: 1px solid #31b0d5;
+    border-radius: 3px;
+}
+.note-list .collection-tag:hover {
+    color: #fff!important;
+    background-color: #31b0d5;
+    border-color: #31b0d5;
+}
+.post .article .author .tag {
+    padding: 1px 2px;
+    font-size: 12px;
+    color: #31b0d5;
+    border: 1px solid #31b0d5;
+    border-radius: 3px;
+}
+
+.post .article .author .tag {
+    padding: 1px 2px;
+    font-size: 12px;
+    color: #31b0d5!important;
+    border: 1px solid #31b0d5!important;
+    border-radius: 3px;
 }
