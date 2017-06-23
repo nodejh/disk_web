@@ -231,7 +231,8 @@
     var url = $('#url').val();
     console.log('url: ', url);
 //                var reg = /(.*pan\.baidu\.com.*)|(.*vdisk\.weibo\.com.*)|(.*weiyun\.com.*)/;
-    var reg = /.*pan\.baidu\.com.*/;
+    var reg = /(http.*pan\.baidu\.com.*)|(http.*yun\.baidu\.com.*)/;
+
     if (!reg.test(url)) {
 //                  return swal('目前只支持百度网盘、微云或微盘的网址', '', 'error');
       return swal('目前只支持百度网盘的网址', '', 'error');

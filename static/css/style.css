@@ -40,6 +40,10 @@ body {
     list-style: none;
     background: #fff;
 }
+.btn.btn-primary  {
+  border-color: #31b0d5;
+  background-color: #31b0d5;
+}
 
 @media (min-width: 500px) {
   .search input {
