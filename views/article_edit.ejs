@@ -8,7 +8,7 @@
 <div class="container index">
 
 
-    <div style="margin: 30px 20px">
+    <div class="write">
         <form class="form">
             <input type="text" id="id" value="<%= article.id %>" style="display:none">
             <div class="form-group">
@@ -49,9 +49,12 @@
             </div>
         </form>
 
-        <textarea id="editor" placeholder="请输入分享内容" autofocus>
-            <%= article.content %>
-          </textarea>
+        <div class="">
+          <textarea id="editor" placeholder="请输入分享内容" autofocus>
+              <%= article.content %>
+            </textarea>
+          
+        </div>
 
         <div class="save" style="margin: 20px auto;">
             <button type="button" class="btn btn-primary" id="write" style="'' min-width: 150px; float: right">提交修改内容</button>

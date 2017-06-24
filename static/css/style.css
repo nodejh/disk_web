@@ -118,3 +118,14 @@ nav .write-btn:focus, nav .write-btn:hover {
     border: 1px solid #31b0d5!important;
     border-radius: 3px;
 }
+
+.write {
+  padding: 20px;
+  margin: 30px 20px;
+  background: #fff;
+}
+
+.save {
+  margin: 20px auto;
+padding: 10px;
+}
