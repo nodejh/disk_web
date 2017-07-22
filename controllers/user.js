@@ -73,7 +73,7 @@ const list = async (ctx) => {
     console.error('exception: ', exception);
   } finally {
     await ctx.render('user_list', {
-      title,
+      title: `${user.name}-${user.nametitle}`,
       list: res,
       user,
       uid,
